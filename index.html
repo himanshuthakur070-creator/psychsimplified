@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-contrast="normal" data-font="default" data-scale="1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PsychSimplified — Making Mental Health Easy to Understand</title>
+<meta name="description" content="Evidence-based psychology and psychiatry explained in simple language — for students, professionals, caregivers, and everyone.">
+<meta name="keywords" content="psychology, psychiatry, mental health, disorders, CBT, DBT, clinical psychology, mental health literacy, depression, anxiety, OCD, PTSD, schizophrenia, education">
+<meta name="author" content="PsychSimplified">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://psychsimplified.pages.dev/">
+<meta name="theme-color" content="#0D9488">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PsychSimplified">
+<meta property="og:title" content="PsychSimplified — Making Mental Health Easy to Understand">
+<meta property="og:description" content="Evidence-based psychology and psychiatry explained in simple language — for students, professionals, caregivers, and everyone.">
+<meta property="og:url" content="https://psychsimplified.pages.dev/">
+<meta property="og:image" content="https://psychsimplified.pages.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PsychSimplified — Making Mental Health Easy to Understand">
+<meta name="twitter:description" content="Evidence-based psychology and psychiatry explained in simple language.">
+<meta name="twitter:image" content="https://psychsimplified.pages.dev/og-image.png">
+
+<!-- Icons + PWA -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#F6FAFB; --surface:#FFFFFF; --surface-2:#EFF6F8;
+  --ink:#16283A; --ink-soft:#4A6274; --ink-faint:#7C93A3;
+  --teal:#0D9488; --teal-soft:#CCF0EC; --teal-deep:#0B7A70;
+  --lav:#7C6CF0; --lav-soft:#E9E5FD;
+  --sky:#DBEEFA; --sky-deep:#3B82C4;
+  --amber:#D97706; --amber-soft:#FDF0DC;
+  --rose:#DB5A7A; --rose-soft:#FBE7ED;
+  --line:#E2ECF1; --shadow:0 6px 24px rgba(22,40,58,.07);
+  --shadow-lg:0 16px 48px rgba(22,40,58,.12);
+  --r:18px; --r-sm:12px; --r-lg:26px;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-display:'Sora',system-ui,sans-serif;
+  --glass:rgba(255,255,255,.72);
+}
+[data-theme="dark"]{
+  --bg:#0B1520; --surface:#12212F; --surface-2:#182B3C;
+  --ink:#E6F0F6; --ink-soft:#A4BCCB; --ink-faint:#6F8A9C;
+  --teal:#2DD4BF; --teal-soft:#123B38; --teal-deep:#5EEAD4;
+  --lav:#A79BF7; --lav-soft:#2A2550;
+  --sky:#16334A; --sky-deep:#7CB8E8;
+  --amber:#F0A94B; --amber-soft:#3A2B12;
+  --rose:#F087A3; --rose-soft:#3E1B26;
+  --line:#213648; --shadow:0 6px 24px rgba(0,0,0,.35);
+  --shadow-lg:0 16px 48px rgba(0,0,0,.5);
+  --glass:rgba(18,33,47,.72);
+}
+[data-contrast="high"]{
+  --ink:#000; --ink-soft:#1a1a1a; --ink-faint:#333;
+  --line:#555; --bg:#fff; --surface:#fff; --surface-2:#f0f0f0;
+  --teal:#005F56; --lav:#4530C8; --sky-deep:#0A4E8C;
+}
+[data-theme="dark"][data-contrast="high"]{
+  --ink:#fff; --ink-soft:#eee; --ink-faint:#ccc;
+  --bg:#000; --surface:#0a0a0a; --surface-2:#161616; --line:#888;
+  --teal:#4FFFEC; --lav:#C6BCFF; --sky-deep:#8FD0FF;
+}
+[data-font="dyslexic"] body, [data-font="dyslexic"] button, [data-font="dyslexic"] input, [data-font="dyslexic"] textarea{
+  font-family:'Atkinson Hyperlegible',sans-serif !important;
+  letter-spacing:.02em; word-spacing:.08em;
+}
+[data-font="dyslexic"] h1,[data-font="dyslexic"] h2,[data-font="dyslexic"] h3,[data-font="dyslexic"] h4,[data-font="dyslexic"] .display{
+  font-family:'Atkinson Hyperlegible',sans-serif !important; letter-spacing:.01em;
+}
+[data-scale="1.15"] body{font-size:18px}
+[data-scale="1.3"] body{font-size:20px}
+
+/* ============ BASE ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{
+  font-family:var(--font-body); font-size:16px; line-height:1.65;
+  background:var(--bg); color:var(--ink);
+  transition:background .3s,color .3s;
+}
+h1,h2,h3,h4,.display{font-family:var(--font-display); line-height:1.2; letter-spacing:-.015em}
+a{color:var(--teal-deep)}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--lav); outline-offset:2px; border-radius:6px}
+.container{max-width:1120px;margin:0 auto;padding:0 22px}
+.hidden{display:none!important}
+.skip-link{position:absolute;left:-999px;top:8px;background:var(--teal);color:#fff;padding:10px 18px;border-radius:10px;z-index:200}
+.skip-link:focus{left:8px}
+
+/* ============ NAV ============ */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;gap:14px;height:66px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.logo-mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--teal),var(--lav));display:grid;place-items:center;color:#fff;font-size:1.05rem}
+.nav-links{display:flex;gap:4px;margin-left:auto;list-style:none;align-items:center}
+.nav-links a{
+  text-decoration:none;color:var(--ink-soft);font-weight:600;font-size:.92rem;
+  padding:8px 14px;border-radius:999px;transition:.2s;
+}
+.nav-links a:hover{background:var(--surface-2);color:var(--ink)}
+.nav-links a.active{background:var(--teal-soft);color:var(--teal-deep)}
+[data-theme="dark"] .nav-links a.active{color:var(--teal)}
+.icon-btn{
+  width:40px;height:40px;border-radius:12px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink);font-size:1.05rem;
+  display:grid;place-items:center;transition:.2s;
+}
+.icon-btn:hover{border-color:var(--teal);transform:translateY(-1px)}
+.hamburger{display:none}
+@media(max-width:900px){
+  .nav-links{
+    display:none;position:absolute;top:66px;left:0;right:0;
+    background:var(--surface);border-bottom:1px solid var(--line);
+    flex-direction:column;padding:14px;gap:6px;box-shadow:var(--shadow-lg);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;text-align:center;padding:12px}
+  .hamburger{display:grid;margin-left:auto}
+}
+
+/* ============ HERO ============ */
+.hero{padding:72px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:44px;text-align:center}}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--lav-soft);color:var(--lav);font-weight:700;font-size:.8rem;
+  padding:7px 15px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase;
+}
+.hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;margin:20px 0 16px}
+.hero h1 .grad{background:linear-gradient(120deg,var(--teal),var(--lav));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:1.12rem;color:var(--ink-soft);max-width:520px}
+@media(max-width:860px){.hero p{margin:0 auto}}
+.hero-cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+@media(max-width:860px){.hero-cta{justify-content:center}}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;border:none;text-decoration:none;
+  font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:14px;transition:.2s;
+}
+.btn-primary{background:linear-gradient(120deg,var(--teal),#14B8A6);color:#fff;box-shadow:0 8px 20px rgba(13,148,136,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(13,148,136,.4)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal-deep)}
+.btn-lav{background:var(--lav-soft);color:var(--lav)}
+.hero-stats{display:flex;gap:28px;margin-top:34px;flex-wrap:wrap}
+@media(max-width:860px){.hero-stats{justify-content:center}}
+.stat b{font-family:var(--font-display);font-size:1.5rem;display:block;color:var(--teal-deep)}
+[data-theme="dark"] .stat b{color:var(--teal)}
+.stat span{font-size:.82rem;color:var(--ink-faint)}
+.brain-wrap{position:relative;display:grid;place-items:center}
+.brain-wrap svg{width:min(100%,420px);height:auto;filter:drop-shadow(0 20px 40px rgba(124,108,240,.18))}
+.synapse-path{stroke:var(--teal);stroke-width:1.6;fill:none;opacity:.5}
+.brain-outline{stroke:var(--lav);stroke-width:2.4;fill:var(--surface);opacity:.95}
+.node{fill:var(--teal)}
+.pulse{fill:var(--lav)}
+@keyframes nodeGlow{0%,100%{opacity:.35;r:4}50%{opacity:1;r:6}}
+.node{animation:nodeGlow 2.6s ease-in-out infinite}
+.node:nth-of-type(2n){animation-delay:.6s}.node:nth-of-type(3n){animation-delay:1.2s}.node:nth-of-type(5n){animation-delay:1.8s}
+
+/* ============ SECTIONS & CARDS ============ */
+section.block{padding:56px 0}
+.section-head{margin-bottom:30px;max-width:640px}
+.section-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:800;margin:10px 0 8px}
+.section-head p{color:var(--ink-soft)}
+.grid{display:grid;gap:18px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid-3,.grid-4,.grid-2{grid-template-columns:1fr}}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:24px;box-shadow:var(--shadow);transition:.25s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--teal)}
+.card h3{font-size:1.05rem;margin:12px 0 6px}
+.card p{font-size:.9rem;color:var(--ink-soft)}
+.chip-icon{
+  width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.3rem;
+}
+.c-teal{background:var(--teal-soft)} .c-lav{background:var(--lav-soft)} .c-sky{background:var(--sky)} .c-amber{background:var(--amber-soft)} .c-rose{background:var(--rose-soft)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.03em}
+.tag-teal{background:var(--teal-soft);color:var(--teal-deep)}
+[data-theme="dark"] .tag-teal{color:var(--teal)}
+.tag-lav{background:var(--lav-soft);color:var(--lav)}
+.tag-amber{background:var(--amber-soft);color:var(--amber)}
+.tag-rose{background:var(--rose-soft);color:var(--rose)}
+.card-link{text-decoration:none;color:inherit;display:block}
+
+/* ============ SEARCH ============ */
+.search-hero{
+  background:var(--surface);border:1.5px solid var(--line);border-radius:20px;
+  display:flex;align-items:center;gap:12px;padding:6px 8px 6px 20px;
+  max-width:640px;margin:34px auto 0;box-shadow:var(--shadow);
+}
+.search-hero input{flex:1;border:none;background:transparent;font-size:1rem;color:var(--ink);font-family:inherit;padding:12px 0}
+.search-hero input:focus{outline:none}
+.search-hero button{border-radius:14px;padding:12px 22px}
+.search-results{max-width:640px;margin:12px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);overflow:hidden}
+.search-results a{display:block;padding:14px 20px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);font-size:.92rem}
+.search-results a:last-child{border-bottom:none}
+.search-results a:hover{background:var(--surface-2)}
+.search-results a small{display:block;color:var(--ink-faint);font-size:.78rem;margin-top:2px}
+
+/* ============ DISORDER PAGE ============ */
+.page-hero{padding:52px 0 30px;background:linear-gradient(135deg,var(--teal-soft),var(--lav-soft));border-bottom:1px solid var(--line)}
+.page-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin:14px 0 10px}
+.page-hero p{color:var(--ink-soft);max-width:600px}
+.breadcrumb{font-size:.85rem;color:var(--ink-faint)}
+.breadcrumb a{color:var(--teal-deep);text-decoration:none;font-weight:600}
+.toc{
+  position:sticky;top:82px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r);padding:18px;font-size:.86rem;max-height:calc(100vh - 110px);overflow:auto;
+}
+.toc a{display:block;padding:7px 10px;text-decoration:none;color:var(--ink-soft);border-radius:8px;font-weight:500}
+.toc a:hover{background:var(--surface-2);color:var(--teal-deep)}
+.disorder-layout{display:grid;grid-template-columns:230px 1fr;gap:30px;padding:40px 0}
+@media(max-width:900px){.disorder-layout{grid-template-columns:1fr}.toc{position:static;max-height:none}}
+.dsec{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;margin-bottom:22px;scroll-margin-top:90px}
+.dsec h2{font-size:1.25rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.dsec h2 .n{width:32px;height:32px;border-radius:10px;background:var(--teal-soft);color:var(--teal-deep);display:grid;place-items:center;font-size:.95rem;flex-shrink:0}
+[data-theme="dark"] .dsec h2 .n{color:var(--teal)}
+.dsec ul,.dsec ol{padding-left:22px;color:var(--ink-soft)}
+.dsec li{margin:7px 0}
+.dsec p{color:var(--ink-soft);margin-bottom:10px}
+.dsec strong{color:var(--ink)}
+.pearl{
+  background:var(--amber-soft);border-left:4px solid var(--amber);border-radius:12px;
+  padding:14px 18px;margin:14px 0;font-size:.92rem;
+}
+.pearl b{color:var(--amber)}
+.callout{background:var(--sky);border-radius:14px;padding:16px 20px;margin:14px 0;font-size:.93rem}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+.mini-card{background:var(--surface-2);border-radius:14px;padding:16px}
+.mini-card h4{font-size:.92rem;margin-bottom:6px;color:var(--teal-deep)}
+[data-theme="dark"] .mini-card h4{color:var(--teal)}
+.mini-card p,.mini-card ul{font-size:.87rem}
+
+/* accordion */
+.acc{border:1px solid var(--line);border-radius:14px;margin:10px 0;overflow:hidden;background:var(--surface)}
+.acc-head{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;
+  background:transparent;border:none;padding:15px 18px;font-weight:700;font-size:.95rem;color:var(--ink);text-align:left;
+}
+.acc-head::after{content:"+";font-size:1.3rem;color:var(--teal);transition:.25s;flex-shrink:0}
+.acc.open .acc-head::after{transform:rotate(45deg)}
+.acc-body{display:none;padding:0 18px 16px;color:var(--ink-soft);font-size:.92rem}
+.acc.open .acc-body{display:block}
+
+/* flowchart */
+.flow{display:flex;flex-direction:column;align-items:center;gap:0;margin:16px 0}
+.flow-box{
+  background:var(--surface-2);border:1.5px solid var(--line);border-radius:14px;
+  padding:12px 20px;font-size:.88rem;font-weight:600;text-align:center;max-width:420px;width:100%;
+}
+.flow-box.hl{background:var(--teal-soft);border-color:var(--teal);color:var(--teal-deep)}
+[data-theme="dark"] .flow-box.hl{color:var(--teal)}
+.flow-arrow{color:var(--lav);font-size:1.2rem;padding:4px 0}
+.flow-branch{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;width:100%}
+.flow-branch .flow-box{flex:1;min-width:150px;max-width:220px}
+
+/* timeline */
+.timeline{position:relative;margin:16px 0 6px;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2.5px;background:linear-gradient(var(--teal),var(--lav));border-radius:2px}
+.tl-item{position:relative;padding:0 0 18px 14px}
+.tl-item::before{content:"";position:absolute;left:-24px;top:5px;width:13px;height:13px;border-radius:50%;background:var(--surface);border:3px solid var(--teal)}
+.tl-item b{display:block;font-size:.92rem}
+.tl-item span{font-size:.85rem;color:var(--ink-soft)}
+
+/* myth/fact flip cards */
+.flip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:12px}
+.flip{perspective:900px;height:170px;cursor:pointer}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .55s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{
+  position:absolute;inset:0;border-radius:16px;padding:18px;
+  display:flex;flex-direction:column;justify-content:center;gap:8px;
+  backface-visibility:hidden;font-size:.87rem;
+}
+.flip-front{background:var(--rose-soft);border:1.5px solid var(--rose)}
+.flip-back{background:var(--teal-soft);border:1.5px solid var(--teal);transform:rotateY(180deg)}
+.flip-face b{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+.flip-front b{color:var(--rose)} .flip-back b{color:var(--teal-deep)}
+[data-theme="dark"] .flip-back b{color:var(--teal)}
+.flip-hint{font-size:.72rem;color:var(--ink-faint);margin-top:auto}
+
+/* quiz */
+.quiz-q{background:var(--surface-2);border-radius:16px;padding:20px;margin:14px 0}
+.quiz-q h4{font-size:.98rem;margin-bottom:12px}
+.quiz-opt{
+  display:block;width:100%;text-align:left;background:var(--surface);border:1.5px solid var(--line);
+  border-radius:12px;padding:12px 16px;margin:8px 0;font-size:.9rem;color:var(--ink);transition:.15s;
+}
+.quiz-opt:hover{border-color:var(--lav)}
+.quiz-opt.correct{border-color:var(--teal);background:var(--teal-soft);font-weight:700}
+.quiz-opt.wrong{border-color:var(--rose);background:var(--rose-soft)}
+.quiz-expl{display:none;font-size:.85rem;color:var(--ink-soft);margin-top:10px;padding:12px;background:var(--surface);border-radius:10px;border-left:3px solid var(--teal)}
+.quiz-q.answered .quiz-expl{display:block}
+.quiz-score{font-family:var(--font-display);font-weight:700;font-size:1.05rem;color:var(--teal-deep);margin-top:12px}
+[data-theme="dark"] .quiz-score{color:var(--teal)}
+
+/* flashcards */
+.fc-stage{max-width:460px;margin:16px auto;text-align:center}
+.fc{perspective:1000px;height:230px;cursor:pointer}
+.fc-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.fc.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-face{
+  position:absolute;inset:0;border-radius:20px;display:grid;place-items:center;
+  padding:26px;backface-visibility:hidden;font-size:1rem;box-shadow:var(--shadow);
+}
+.fc-front{background:linear-gradient(135deg,var(--lav-soft),var(--sky));font-weight:700;font-family:var(--font-display)}
+.fc-back{background:var(--surface);border:1.5px solid var(--teal);transform:rotateY(180deg);font-size:.92rem;color:var(--ink-soft)}
+.fc-nav{display:flex;justify-content:center;gap:10px;margin-top:14px;align-items:center}
+.fc-count{font-size:.85rem;color:var(--ink-faint)}
+
+/* progress bar */
+.progress-wrap{background:var(--surface-2);border-radius:999px;height:10px;overflow:hidden;margin:8px 0 4px}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--teal),var(--lav));border-radius:999px;transition:width .4s}
+
+/* ============ ABOUT ============ */
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:start}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+.avatar{
+  width:100%;aspect-ratio:1;border-radius:26px;
+  background:linear-gradient(135deg,var(--teal-soft),var(--lav-soft));
+  display:grid;place-items:center;font-size:4.5rem;border:1px solid var(--line);
+}
+.social-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.social-row a{
+  flex:1;min-width:120px;text-align:center;text-decoration:none;font-size:.83rem;font-weight:700;
+  padding:10px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:var(--ink-soft);transition:.2s;
+}
+.social-row a:hover{border-color:var(--teal);color:var(--teal-deep)}
+
+/* ============ BLOG / RESOURCES / FOOTER ============ */
+.blog-meta{font-size:.78rem;color:var(--ink-faint);display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.res-card{display:flex;gap:16px;align-items:flex-start}
+.newsletter{
+  background:linear-gradient(135deg,var(--teal),var(--lav));border-radius:var(--r-lg);
+  padding:44px 30px;text-align:center;color:#fff;margin:30px 0;
+}
+.newsletter h2{font-size:1.6rem;margin-bottom:8px}
+.newsletter p{opacity:.9;margin-bottom:20px}
+.newsletter form{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.newsletter input{flex:1;min-width:200px;padding:13px 18px;border-radius:13px;border:none;font-size:.95rem;font-family:inherit}
+.newsletter button{background:#16283A;color:#fff;border:none;padding:13px 24px;border-radius:13px;font-weight:700}
+footer{border-top:1px solid var(--line);padding:40px 0 28px;margin-top:40px;background:var(--surface)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:26px;margin-bottom:26px}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
+footer h4{font-size:.88rem;margin-bottom:12px}
+footer a{display:block;text-decoration:none;color:var(--ink-soft);font-size:.86rem;margin:7px 0}
+footer a:hover{color:var(--teal-deep)}
+.foot-note{font-size:.78rem;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:18px}
+
+/* ============ A11Y PANEL ============ */
+.a11y-fab{
+  position:fixed;bottom:22px;right:22px;z-index:150;
+  width:54px;height:54px;border-radius:50%;border:none;font-size:1.4rem;
+  background:linear-gradient(135deg,var(--teal),var(--lav));color:#fff;box-shadow:var(--shadow-lg);
+}
+.a11y-panel{
+  position:fixed;bottom:86px;right:22px;z-index:150;width:290px;
+  background:var(--surface);border:1px solid var(--line);border-radius:20px;
+  box-shadow:var(--shadow-lg);padding:20px;
+}
+.a11y-panel h3{font-size:1rem;margin-bottom:14px}
+.a11y-row{display:flex;justify-content:space-between;align-items:center;margin:12px 0;font-size:.88rem;font-weight:600;gap:10px}
+.a11y-row .opts{display:flex;gap:6px}
+.a11y-row .opts button{
+  border:1.5px solid var(--line);background:var(--surface);border-radius:9px;
+  padding:6px 11px;font-size:.8rem;font-weight:700;color:var(--ink-soft);
+}
+.a11y-row .opts button.on{border-color:var(--teal);background:var(--teal-soft);color:var(--teal-deep)}
+[data-theme="dark"] .a11y-row .opts button.on{color:var(--teal)}
+
+/* forms */
+.form-grid{display:grid;gap:14px;max-width:560px}
+.form-grid input,.form-grid textarea{
+  width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:13px;
+  background:var(--surface);color:var(--ink);font-family:inherit;font-size:.94rem;
+}
+.form-grid textarea{min-height:130px;resize:vertical}
+.notice{background:var(--teal-soft);color:var(--teal-deep);border-radius:12px;padding:12px 16px;font-size:.88rem;font-weight:600}
+[data-theme="dark"] .notice{color:var(--teal)}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home" data-nav="home"><span class="logo-mark">ψ</span> PsychSimplified</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-nav="home" class="active">Home</a></li>
+      <li><a href="#learn" data-nav="learn">Learning Hub</a></li>
+      <li><a href="#disorders" data-nav="disorders">Disorders</a></li>
+      <li><a href="#notes" data-nav="notes">Study Notes</a></li>
+      <li><a href="#blog" data-nav="blog">Blog</a></li>
+      <li><a href="#research" data-nav="research">Research</a></li>
+      <li><a href="#resources" data-nav="resources">Resources</a></li>
+      <li><a href="#about" data-nav="about">About</a></li>
+    </ul>
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    <button class="icon-btn hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ HOME ============ -->
+<div class="page" id="page-home">
+  <div class="container">
+    <div class="hero">
+      <div>
+        <span class="eyebrow">✦ Evidence-based · Simple · Free</span>
+        <h1>Making Mental Health <span class="grad">Easy to Understand.</span></h1>
+        <p>Evidence-based psychology and psychiatry explained in simple language — for students, professionals, caregivers, and everyone curious about the mind.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#learn" data-nav="learn">Start Learning →</a>
+          <a class="btn btn-ghost" href="#disorders" data-nav="disorders">Browse Disorders</a>
+          <a class="btn btn-lav" href="#about" data-nav="about">About Me</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>28+</b><span>Disorder guides</span></div>
+          <div class="stat"><b>13</b><span>Learning categories</span></div>
+          <div class="stat"><b>100%</b><span>Simple language</span></div>
+        </div>
+      </div>
+      <div class="brain-wrap" aria-hidden="true">
+        <svg viewBox="0 0 320 300">
+          <path class="brain-outline" d="M160 30 C110 22 70 48 62 90 C30 100 22 140 40 168 C28 200 48 236 84 242 C96 272 140 282 162 262 C190 280 232 268 240 236 C276 228 292 190 276 160 C294 130 282 92 250 84 C244 46 205 24 160 30 Z"/>
+          <path class="synapse-path" d="M90 100 C120 80 150 120 180 100 S240 120 250 150"/>
+          <path class="synapse-path" d="M70 160 C110 150 130 190 170 180 S230 200 255 180"/>
+          <path class="synapse-path" d="M100 220 C130 200 160 230 200 215 S235 190 245 210"/>
+          <path class="synapse-path" d="M120 60 C140 90 170 70 190 95"/>
+          <path class="synapse-path" d="M85 130 C100 155 140 140 155 160"/>
+          <circle class="node" cx="90" cy="100" r="5"/>
+          <circle class="node" cx="180" cy="100" r="5"/>
+          <circle class="node" cx="250" cy="150" r="5"/>
+          <circle class="node" cx="70" cy="160" r="5"/>
+          <circle class="node" cx="170" cy="180" r="5"/>
+          <circle class="node" cx="255" cy="180" r="5"/>
+          <circle class="node" cx="100" cy="220" r="5"/>
+          <circle class="node" cx="200" cy="215" r="5"/>
+          <circle class="node" cx="120" cy="60" r="5"/>
+          <circle class="node" cx="190" cy="95" r="5"/>
+          <circle class="node" cx="155" cy="160" r="5"/>
+          <circle class="pulse" r="4">
+            <animateMotion dur="4s" repeatCount="indefinite" path="M90 100 C120 80 150 120 180 100 S240 120 250 150"/>
+          </circle>
+          <circle class="pulse" r="4">
+            <animateMotion dur="5s" repeatCount="indefinite" path="M70 160 C110 150 130 190 170 180 S230 200 255 180"/>
+          </circle>
+          <circle class="pulse" r="4">
+            <animateMotion dur="4.5s" repeatCount="indefinite" path="M100 220 C130 200 160 230 200 215 S235 190 245 210"/>
+          </circle>
+        </svg>
+      </div>
+    </div>
+
+    <div class="search-hero">
+      <span aria-hidden="true">🔍</span>
+      <input type="text" id="siteSearch" placeholder='Try "What is OCD?" or "How is depression treated?"' aria-label="Search the site">
+      <button class="btn btn-primary" onclick="runSearch()">Search</button>
+    </div>
+    <div class="search-results hidden" id="searchResults"></div>
+  </div>
+
+  <section class="block">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag tag-lav">WHY THIS SITE</span>
+        <h2>Complex psychiatry, explained like a friend would.</h2>
+        <p>Every topic follows the same clear structure — so once you learn one page, you can navigate them all.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><div class="chip-icon c-teal">🧩</div><h3>Simple Language</h3><p>No unnecessary jargon. Concepts broken into small, digestible chunks with everyday examples.</p></div>
+        <div class="card"><div class="chip-icon c-lav">🎴</div><h3>Visual First</h3><p>Flowcharts, timelines, brain illustrations, and color-coded cards — because the brain loves pictures.</p></div>
+        <div class="card"><div class="chip-icon c-sky">🎮</div><h3>Interactive Learning</h3><p>Flashcards, MCQs, drag-and-drop games, and diagnostic decision trees that make revision fun.</p></div>
+        <div class="card"><div class="chip-icon c-amber">📋</div><h3>Exam Ready</h3><p>High-yield revision notes, one-page summaries, and DSM-5-TR / ICD-11 criteria side by side.</p></div>
+        <div class="card"><div class="chip-icon c-rose">🩺</div><h3>Clinically Grounded</h3><p>Written by a clinical psychology trainee with hospital, prison, and military placement experience.</p></div>
+        <div class="card"><div class="chip-icon c-teal">♿</div><h3>Accessible to All</h3><p>Dyslexia-friendly fonts, adjustable text size, dark mode, and high-contrast options built in.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag tag-teal">FEATURED GUIDE</span>
+        <h2>Start with Depression</h2>
+        <p>Our most complete guide — definition to prognosis, with quizzes and flashcards.</p>
+      </div>
+      <a class="card card-link" href="#disorder-depression" data-nav="disorder-depression" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+        <div class="chip-icon c-lav" style="width:64px;height:64px;font-size:1.8rem">🌧️</div>
+        <div style="flex:1;min-width:240px">
+          <h3 style="margin-top:0">Major Depressive Disorder</h3>
+          <p>What happens in the brain, DSM-5-TR &amp; ICD-11 criteria, CBT techniques, medications, myths vs facts, and a 5-question quiz.</p>
+        </div>
+        <span class="btn btn-primary">Open Guide →</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<!-- ============ LEARNING HUB ============ -->
+<div class="page hidden" id="page-learn">
+  <div class="page-hero">
+    <div class="container">
+      <span class="breadcrumb"><a href="#home" data-nav="home">Home</a> / Learning Hub</span>
+      <h1>Learning Hub</h1>
+      <p>Pick a category. Each one contains simple explanations, visual summaries, and exam-focused notes.</p>
+    </div>
+  </div>
+  <section class="block"><div class="container">
+    <div class="grid grid-4" id="hubGrid"></div>
+  </div></section>
+</div>
+
+<!-- ============ DISORDERS LIBRARY ============ -->
+<div class="page hidden" id="page-disorders">
+  <div class="page-hero">
+    <div class="container">
+      <span class="breadcrumb"><a href="#home" data-nav="home">Home</a> / Disorders Library</span>
+      <h1>Disorders Library</h1>
+      <p>Every disorder page follows the same 18-step structure — from definition to references. Type to filter.</p>
+      <div class="search-hero" style="margin:24px 0 0;max-width:480px">
+        <span aria-hidden="true">🔍</span>
+        <input type="text" id="disorderFilter" placeholder="Filter disorders…" aria-label="Filter disorders">
+      </div>
+    </div>
+  </div>
+  <section class="block"><div class="container">
+    <div class="grid grid-3" id="disorderGrid"></div>
+  </div></section>
+</div>
+<!-- ============ DISORDER DETAIL (rendered by JS) ============ -->
+<div class="page hidden" id="page-disorder">
+  <div class="page-hero">
+    <div class="container">
+      <span class="breadcrumb"><a href="#disorders" data-nav="disorders">Disorders</a> / <span id="dTitle">—</span></span>
+      <h1 id="dHeroTitle">—</h1>
+      <p id="dHeroSub">—</p>
+      <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="downloadDisorderPDF()">⬇ Download PDF</button>
+        <button class="btn btn-ghost" id="bookmarkBtn" onclick="toggleBookmark()">☆ Bookmark</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="disorder-layout">
+      <aside>
+        <nav class="toc" aria-label="Sections on this page" id="dToc"></nav>
+      </aside>
+      <div id="dBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STUDY NOTES ============ -->
+<div class="page hidden" id="page-notes">
+  <div class="page-hero"><div class="container">
+    <span class="breadcrumb"><a href="#home" data-nav="home">Home</a> / Study Notes</span>
+    <h1>Study Notes</h1>
+    <p>High-yield, color-coded, one-page revision sheets. Built for exam recall, not endless reading.</p>
+  </div></div>
+  <section class="block"><div class="container">
+    <div class="grid grid-3" id="notesGrid"></div>
+  </div></section>
+</div>
+
+<!-- ============ INTERACTIVE (games) ============ -->
+<div class="page hidden" id="page-play">
+  <div class="page-hero"><div class="container">
+    <span class="breadcrumb"><a href="#home" data-nav="home">Home</a> / Interactive Learning</span>
+    <h1>Interactive Learning</h1>
+    <p>Learning should feel like play. Sort symptoms, match terms, and walk a diagnostic decision tree.</p>
+  </div></div>
+  <section class="block"><div class="container">
+    <div class="section-head"><span class="tag tag-teal">GAME 1</span><h2>Symptom Sorting</h2><p>Drag each symptom into the disorder it best fits.</p></div>
+    <div id="sortGame"></div>
+  </div></section>
+  <section class="block" style="padding-top:0"><div class="container">
+    <div class="section-head"><span class="tag tag-lav">GAME 2</span><h2>Diagnostic Decision Tree</h2><p>Answer step by step to reach a likely working diagnosis.</p></div>
+    <div id="treeGame" class="card"></div>
+  </div></section>
+</div>
+
+<!-- ============ BLOG ============ -->
+<div class="page hidden" id="page-blog">
+  <div class="page-hero"><div class="container">
+    <span class="breadcrumb"><a href="#home" data-nav="home">Home</a> / Blog</span>
+    <h1>Blog</h1>
+    <p>Notes from clinical placements, myth-busting, research explainers, and study tips.</p>
+    <div class="search-hero" style="margin:24px 0 0;max-width:440px">
+      <span aria-hidden="true">🔍</span>
+      <input type="text" id="blogSearch" placeholder="Search articles…" aria-label="Search blog">
+    </div>
+  </div></div>
+  <section class="block"><div class="container">
+    <div id="blogTags" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px"></div>
+    <div class="grid grid-3" id="blogGrid"></div>
+  </div></section>
+</div>
+
+<!-- ============ RESEARCH ============ -->
+<div class="page hidden" id="page-research">
+  <div class="page-hero"><div class="container">
+    <span class="breadcrumb"><a href="#home" data-nav="home">Home</a> / Research</span>
+    <h1>Research</h1>
+    <p>Publications, conference presentations, ongoing work, and my M.Phil dissertation.</p>
+  </div></div>
+  <section class="block"><div class="container" id="researchBody"></div></section>
+</div>
+
+<!-- ============ RESOURCES ============ -->
+<div class="page hidden" id="page-resources">
+  <div class="page-hero"><div class="container">
+    <span class="breadcrumb"><a href="#home" data-nav="home">Home</a> / Resources</span>
+    <h1>Free Resources</h1>
+    <p>Downloadable worksheets, templates, and handouts for clinicians, students, and caregivers.</p>
+  </div></div>
+  <section class="block"><div class="container">
+    <div class="grid grid-2" id="resourcesGrid"></div>
+  </div></section>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<div class="page hidden" id="page-about">
+  <div class="page-hero"><div class="container">
+    <span class="breadcrumb"><a href="#home" data-nav="home">Home</a> / About</span>
+    <h1>About Me</h1>
+    <p>Clinical psychologist in training, educator, and researcher.</p>
+  </div></div>
+  <section class="block"><div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="avatar">🧑‍⚕️</div>
+        <div class="social-row">
+          <a href="#" onclick="return false" title="LinkedIn">in · LinkedIn</a>
+          <a href="https://orcid.org/0009-0004-7776-5885" target="_blank" rel="noopener" title="ORCID">iD · ORCID</a>
+        </div>
+        <div class="social-row">
+          <a href="#" onclick="return false" title="ResearchGate">RG · ResearchGate</a>
+          <a href="#" onclick="return false" title="Google Scholar">GS · Scholar</a>
+        </div>
+        <a class="btn btn-primary" style="width:100%;justify-content:center;margin-top:14px" href="#" onclick="downloadResume();return false">⬇ Download Résumé</a>
+      </div>
+      <div id="aboutBody"></div>
+    </div>
+  </div></section>
+  <section class="block" style="padding-top:0"><div class="container">
+    <div class="section-head"><span class="tag tag-teal">GET IN TOUCH</span><h2>Contact</h2><p>Questions, collaboration, or speaking invitations — send a message.</p></div>
+    <form class="form-grid" onsubmit="handleContact(event)">
+      <input type="text" placeholder="Your name" required aria-label="Your name">
+      <input type="email" placeholder="Your email" required aria-label="Your email">
+      <textarea placeholder="Your message" required aria-label="Your message"></textarea>
+      <button class="btn btn-primary" type="submit" style="justify-content:center">Send message</button>
+      <div class="notice hidden" id="contactOk">Thanks — your message has been noted. This demo form does not send email yet.</div>
+    </form>
+  </div></section>
+</div>
+
+</main>
+
+<!-- ============ NEWSLETTER + FOOTER ============ -->
+<div class="container">
+  <div class="newsletter">
+    <h2>Learn one concept a week</h2>
+    <p>Short, plain-language explainers in your inbox. No spam, unsubscribe anytime.</p>
+    <form onsubmit="handleNewsletter(event)">
+      <input type="email" placeholder="you@email.com" required aria-label="Email for newsletter">
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="notice hidden" id="newsOk" style="max-width:440px;margin:14px auto 0;background:rgba(255,255,255,.2);color:#fff">Subscribed! (demo)</div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#home" data-nav="home" style="margin-bottom:12px"><span class="logo-mark">ψ</span> PsychSimplified</a>
+        <p style="font-size:.86rem;color:var(--ink-soft);max-width:280px">Making mental health easy to understand — evidence-based, visual, and free for everyone.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <a href="#learn" data-nav="learn">Learning Hub</a>
+        <a href="#disorders" data-nav="disorders">Disorders Library</a>
+        <a href="#notes" data-nav="notes">Study Notes</a>
+        <a href="#play" data-nav="play">Interactive</a>
+      </div>
+      <div>
+        <h4>More</h4>
+        <a href="#blog" data-nav="blog">Blog</a>
+        <a href="#research" data-nav="research">Research</a>
+        <a href="#resources" data-nav="resources">Resources</a>
+        <a href="#about" data-nav="about">About</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://orcid.org/0009-0004-7776-5885" target="_blank" rel="noopener">ORCID</a>
+        <a href="#" onclick="return false">LinkedIn</a>
+        <a href="#" onclick="return false">Google Scholar</a>
+        <a href="#about" data-nav="about">Contact</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <strong>Educational use only.</strong> This site explains psychology and psychiatry for learning. It is not a substitute for professional diagnosis or treatment. If you are in crisis, contact a local emergency service or a trained professional. In India, you can reach Tele-MANAS at 14416.
+      <br>© 2026 PsychSimplified · Built as an educational portfolio.
+    </div>
+  </div>
+</footer>
+
+<!-- A11y controls -->
+<button class="a11y-fab" id="a11yFab" aria-label="Accessibility options" aria-expanded="false">♿</button>
+<div class="a11y-panel hidden" id="a11yPanel" role="dialog" aria-label="Accessibility options">
+  <h3>Accessibility</h3>
+  <div class="a11y-row"><span>Theme</span><div class="opts"><button data-act="theme" data-val="light">Light</button><button data-act="theme" data-val="dark">Dark</button></div></div>
+  <div class="a11y-row"><span>Contrast</span><div class="opts"><button data-act="contrast" data-val="normal">Normal</button><button data-act="contrast" data-val="high">High</button></div></div>
+  <div class="a11y-row"><span>Font</span><div class="opts"><button data-act="font" data-val="default">Default</button><button data-act="font" data-val="dyslexic">Dyslexia</button></div></div>
+  <div class="a11y-row"><span>Text size</span><div class="opts"><button data-act="scale" data-val="1">A</button><button data-act="scale" data-val="1.15">A+</button><button data-act="scale" data-val="1.3">A++</button></div></div>
+</div>
+<script>
+/* ============================================================
+   DATA
+============================================================ */
+const HUB = [
+  {t:"Psychiatry",i:"🧠",c:"c-lav",d:"Medical side of mental illness: diagnosis, medication, and the biology behind disorders."},
+  {t:"Clinical Psychology",i:"🩺",c:"c-teal",d:"Assessment, formulation, and psychological therapy in real clinical settings."},
+  {t:"Psychopathology",i:"🔬",c:"c-sky",d:"How and why mental disorders develop — signs, symptoms, and course."},
+  {t:"Psychotherapy",i:"💬",c:"c-lav",d:"CBT, DBT, ACT, REBT, MET and more — how talking therapies actually work."},
+  {t:"Psychological Assessment",i:"📊",c:"c-amber",d:"IQ, personality, and projective tests — what they measure and how to interpret."},
+  {t:"Research Methods",i:"🧪",c:"c-teal",d:"Designs, validity, sampling, and reading a paper without getting lost."},
+  {t:"Statistics",i:"📈",c:"c-sky",d:"From t-tests to factor analysis, explained without the fear."},
+  {t:"Neuropsychology",i:"⚡",c:"c-rose",d:"Brain-behaviour links, lobes, and what happens when circuits break."},
+  {t:"Child Psychology",i:"🧒",c:"c-amber",d:"Development, attachment, and childhood-onset disorders."},
+  {t:"Behavioural Medicine",i:"❤️‍🩹",c:"c-rose",d:"Mind-body links: stress, pain, illness behaviour, and health psychology."},
+  {t:"DSM-5-TR",i:"📘",c:"c-teal",d:"The American classification system, decoded criterion by criterion."},
+  {t:"ICD-11",i:"📗",c:"c-lav",d:"The WHO's global classification and how it differs from the DSM."},
+  {t:"Case Formulation",i:"🧩",c:"c-sky",d:"The 5 Ps, biopsychosocial models, and building a shared story of a case."}
+];
+
+/* Disorder list — each has full or template content */
+const DISORDERS = [
+  {id:"depression",name:"Depression",icon:"🌧️",cat:"Mood",tag:"tag-lav",sub:"Major Depressive Disorder — persistent low mood and loss of interest that disrupts daily life."},
+  {id:"bipolar",name:"Bipolar Disorder",icon:"🎢",cat:"Mood",tag:"tag-lav",sub:"Cycling between depressive lows and manic or hypomanic highs."},
+  {id:"gad",name:"Anxiety Disorders",icon:"😰",cat:"Anxiety",tag:"tag-teal",sub:"Excessive, hard-to-control worry across many areas of life."},
+  {id:"panic",name:"Panic Disorder",icon:"💥",cat:"Anxiety",tag:"tag-teal",sub:"Sudden surges of intense fear with strong physical symptoms."},
+  {id:"ocd",name:"OCD",icon:"🔁",cat:"OCRD",tag:"tag-teal",sub:"Intrusive obsessions paired with repetitive compulsions."},
+  {id:"ptsd",name:"PTSD",icon:"🌩️",cat:"Trauma",tag:"tag-amber",sub:"Persistent distress after a traumatic event — re-experiencing, avoidance, arousal."},
+  {id:"schizophrenia",name:"Schizophrenia",icon:"🌀",cat:"Psychosis",tag:"tag-rose",sub:"A disorder of psychosis affecting thought, perception, and motivation."},
+  {id:"psychosis",name:"Psychosis",icon:"🔮",cat:"Psychosis",tag:"tag-rose",sub:"A break from reality — hallucinations, delusions, disorganised thinking."},
+  {id:"personality",name:"Personality Disorders",icon:"🎭",cat:"Personality",tag:"tag-lav",sub:"Enduring, inflexible patterns of thinking, feeling, and relating."},
+  {id:"adhd",name:"ADHD",icon:"⚡",cat:"Neurodev",tag:"tag-amber",sub:"Persistent inattention and/or hyperactivity-impulsivity."},
+  {id:"autism",name:"Autism Spectrum",icon:"🧩",cat:"Neurodev",tag:"tag-amber",sub:"Differences in social communication and restricted, repetitive behaviour."},
+  {id:"eating",name:"Eating Disorders",icon:"🍽️",cat:"Eating",tag:"tag-rose",sub:"Disturbed eating and body image with serious physical risk."},
+  {id:"sud",name:"Substance Use Disorders",icon:"🍷",cat:"Addiction",tag:"tag-amber",sub:"Compulsive substance use despite harm."},
+  {id:"somatic",name:"Somatic Symptom Disorder",icon:"🩹",cat:"Somatic",tag:"tag-teal",sub:"Distressing physical symptoms with excessive related thoughts and behaviours."},
+  {id:"dissociative",name:"Dissociative Disorders",icon:"🪞",cat:"Dissociative",tag:"tag-lav",sub:"Disruptions in memory, identity, or sense of reality."},
+  {id:"sleep",name:"Sleep Disorders",icon:"🌙",cat:"Sleep",tag:"tag-sky",sub:"Insomnia, hypersomnia, and other disturbances of sleep."},
+  {id:"ncd",name:"Neurocognitive Disorders",icon:"🧓",cat:"Cognitive",tag:"tag-rose",sub:"Acquired decline in cognition — the umbrella over delirium and dementia."},
+  {id:"delirium",name:"Delirium",icon:"🌫️",cat:"Cognitive",tag:"tag-rose",sub:"Acute, fluctuating disturbance of attention and awareness."},
+  {id:"dementia",name:"Dementia",icon:"🕰️",cat:"Cognitive",tag:"tag-rose",sub:"Progressive decline in memory and thinking affecting daily function."},
+  {id:"id",name:"Intellectual Disability",icon:"🌱",cat:"Neurodev",tag:"tag-amber",sub:"Limitations in intellectual and adaptive functioning with early onset."},
+  {id:"conduct",name:"Conduct Disorder",icon:"⚔️",cat:"Disruptive",tag:"tag-amber",sub:"Repetitive violation of rules and the rights of others."},
+  {id:"odd",name:"Oppositional Defiant Disorder",icon:"🙅",cat:"Disruptive",tag:"tag-amber",sub:"Angry, argumentative, and defiant behaviour toward authority."},
+  {id:"tic",name:"Tic Disorders",icon:"😵",cat:"Neurodev",tag:"tag-amber",sub:"Sudden, repetitive movements or vocalisations, as in Tourette's."},
+  {id:"sexual",name:"Sexual Disorders",icon:"💞",cat:"Sexual",tag:"tag-rose",sub:"Difficulties in sexual response, desire, or function."},
+  {id:"gender",name:"Gender Dysphoria",icon:"⚧️",cat:"Sexual",tag:"tag-rose",sub:"Distress from a mismatch between experienced and assigned gender."},
+  {id:"trauma",name:"Trauma Disorders",icon:"🛡️",cat:"Trauma",tag:"tag-amber",sub:"Conditions arising after stressful or traumatic experiences."},
+  {id:"grief",name:"Grief",icon:"🕯️",cat:"Trauma",tag:"tag-amber",sub:"Normal and prolonged grief after loss — and where the line falls."},
+  {id:"suicide",name:"Suicide Risk Assessment",icon:"🆘",cat:"Safety",tag:"tag-rose",sub:"How clinicians assess and manage risk — an educational overview."}
+];
+/* ---- Section labels for the 18-step structure ---- */
+const SECTIONS = [
+ ["def","Definition"],["brain","What happens in the brain?"],["causes","Causes"],
+ ["risk","Risk factors"],["symptoms","Symptoms"],["criteria","Diagnostic Criteria"],
+ ["ddx","Differential Diagnosis"],["assess","Assessment"],["tests","Psychological Tests"],
+ ["treat","Treatment"],["cbt","CBT Techniques"],["meds","Medications"],
+ ["life","Lifestyle Management"],["prog","Prognosis"],["myths","Myths vs Facts"],
+ ["revise","Quick Revision Notes"],["pdf","Download PDF"],["ref","References"]
+];
+
+/* ---- Rich content library. Keyed by disorder id. ---- */
+const CONTENT = {
+depression:{
+ def:`<p><strong>Major Depressive Disorder (MDD)</strong> is more than sadness. It is a persistent low mood or loss of interest lasting <strong>at least two weeks</strong>, along with changes in sleep, appetite, energy, concentration, and self-worth, that clearly interferes with everyday life.</p>
+ <div class="callout">Think of it as the mind's "energy and reward" system running flat — not a weakness of character or willpower.</div>`,
+ brain:`<p>Depression involves several brain systems rather than a single "chemical imbalance":</p>
+ <div class="two-col">
+   <div class="mini-card"><h4>Neurotransmitters</h4><p>Reduced signalling in <strong>serotonin, noradrenaline, and dopamine</strong> pathways affects mood, motivation, and reward.</p></div>
+   <div class="mini-card"><h4>Limbic–cortical circuit</h4><p>An <strong>overactive amygdala</strong> (threat) with an <strong>underactive prefrontal cortex</strong> (regulation) tilts toward negativity.</p></div>
+   <div class="mini-card"><h4>Hippocampus & stress</h4><p>Chronic stress raises <strong>cortisol (HPA axis)</strong>, which over time can shrink hippocampal volume.</p></div>
+   <div class="mini-card"><h4>Reward system</h4><p>Blunted dopamine in the reward circuit underlies <strong>anhedonia</strong> — the loss of pleasure.</p></div>
+ </div>`,
+ causes:`<p>Depression is best understood through a <strong>biopsychosocial</strong> lens:</p>
+ <ul>
+  <li><strong>Biological:</strong> genetics, neurotransmitter changes, hormonal shifts, medical illness.</li>
+  <li><strong>Psychological:</strong> negative thinking styles, low self-esteem, rumination, learned helplessness.</li>
+  <li><strong>Social:</strong> loss, isolation, financial or relationship stress, early adversity.</li>
+ </ul>`,
+ risk:`<ul>
+  <li>Family history of depression</li>
+  <li>Female sex (roughly 2:1)</li>
+  <li>Early-life trauma or neglect</li>
+  <li>Chronic medical illness or pain</li>
+  <li>Substance use</li>
+  <li>Recent major loss or stressful life event</li>
+  <li>Postpartum period</li>
+ </ul>`,
+ symptoms:`<p>Remember the mnemonic <strong>SIG E CAPS</strong> (plus depressed mood):</p>
+ <div class="two-col">
+   <div class="mini-card"><h4>Core</h4><ul><li>Depressed mood</li><li>Loss of interest / pleasure (anhedonia)</li></ul></div>
+   <div class="mini-card"><h4>SIG E CAPS</h4><ul><li><b>S</b>leep change</li><li><b>I</b>nterest loss</li><li><b>G</b>uilt / worthlessness</li><li><b>E</b>nergy low</li><li><b>C</b>oncentration poor</li><li><b>A</b>ppetite change</li><li><b>P</b>sychomotor change</li><li><b>S</b>uicidal thoughts</li></ul></div>
+ </div>`,
+ criteria:`<p>Compare the two major systems side by side:</p>
+ <div class="two-col">
+   <div class="mini-card"><h4>DSM-5-TR</h4><p>≥5 of 9 symptoms for ≥2 weeks, including depressed mood or anhedonia. Causes distress/impairment and is not due to a substance or medical condition.</p></div>
+   <div class="mini-card"><h4>ICD-11</h4><p>Presence of affective, cognitive, and neurovegetative symptoms most of the day, nearly every day, for ≥2 weeks. Graded mild / moderate / severe.</p></div>
+ </div>
+ <div class="pearl"><b>Clinical pearl:</b> Always screen for a past manic/hypomanic episode. If present, the diagnosis shifts to bipolar disorder, which changes treatment entirely.</div>`,
+ ddx:`<div class="flow">
+   <div class="flow-box hl">Persistent low mood ≥2 weeks</div>
+   <div class="flow-arrow">↓</div>
+   <div class="flow-box">Any history of mania/hypomania? → Bipolar disorder</div>
+   <div class="flow-arrow">↓ no</div>
+   <div class="flow-box">Chronic (≥2 yrs), milder? → Persistent depressive disorder (dysthymia)</div>
+   <div class="flow-arrow">↓ no</div>
+   <div class="flow-box">Clear medical / substance cause? → Depression due to another condition</div>
+   <div class="flow-arrow">↓ no</div>
+   <div class="flow-box hl">Major Depressive Disorder</div>
+ </div>
+ <p>Also consider: adjustment disorder, grief, hypothyroidism, anaemia, and dementia (pseudodementia) in older adults.</p>`,
+ assess:`<ul>
+  <li><strong>Clinical interview</strong> + detailed history (HOPI, onset, course, stressors)</li>
+  <li><strong>Mental Status Examination (MSE)</strong> — mood, affect, thought content, cognition, insight</li>
+  <li><strong>Risk assessment</strong> — always ask directly about suicidal ideation, plan, and intent</li>
+  <li>Rule out medical causes (thyroid, B12, etc.)</li>
+ </ul>`,
+ tests:`<div class="two-col">
+   <div class="mini-card"><h4>Screening / severity</h4><ul><li>PHQ-9</li><li>Beck Depression Inventory (BDI-II)</li><li>Hamilton Rating Scale (HAM-D)</li><li>Montgomery–Åsberg (MADRS)</li></ul></div>
+   <div class="mini-card"><h4>Broader assessment</h4><ul><li>MMPI-2 (personality/psychopathology)</li><li>Rorschach / TAT (projective, where indicated)</li><li>Columbia Suicide Severity Rating Scale</li></ul></div>
+ </div>`,
+ treat:`<p>Treatment is <strong>stepped</strong> by severity:</p>
+ <div class="timeline">
+   <div class="tl-item"><b>Mild</b><span>Psychoeducation, lifestyle, guided self-help, structured exercise.</span></div>
+   <div class="tl-item"><b>Moderate</b><span>Psychotherapy (CBT / IPT / BA) and/or an antidepressant.</span></div>
+   <div class="tl-item"><b>Severe</b><span>Combined medication + therapy; consider specialist referral.</span></div>
+   <div class="tl-item"><b>Treatment-resistant</b><span>Augmentation, switching, or ECT / newer options under specialist care.</span></div>
+ </div>`,
+ cbt:`<p>Core CBT techniques for depression:</p>
+ <ul>
+  <li><strong>Behavioural activation:</strong> schedule small, rewarding activities to break the withdrawal–low-mood loop.</li>
+  <li><strong>Thought records:</strong> catch and test automatic negative thoughts.</li>
+  <li><strong>Cognitive restructuring:</strong> identify distortions (all-or-nothing, catastrophising) and build balanced alternatives.</li>
+  <li><strong>Problem-solving</strong> and <strong>graded task assignment</strong>.</li>
+  <li><strong>Relapse prevention:</strong> spot early warning signs and plan responses.</li>
+ </ul>
+ <div class="pearl"><b>Clinical pearl:</b> In severe depression, start with <em>behaviour</em> before <em>cognition</em> — action often shifts mood faster than argument.</div>`,
+ meds:`<div class="two-col">
+   <div class="mini-card"><h4>First line</h4><p><strong>SSRIs</strong> (e.g., sertraline, escitalopram, fluoxetine) — generally well tolerated.</p></div>
+   <div class="mini-card"><h4>Others</h4><p><strong>SNRIs</strong> (venlafaxine, duloxetine), <strong>atypicals</strong> (mirtazapine, bupropion), and older <strong>TCAs / MAOIs</strong> in selected cases.</p></div>
+ </div>
+ <div class="callout">Antidepressants often take <strong>2–6 weeks</strong> to work. Educating patients about this delay improves adherence. Medication decisions belong to a prescriber — this is for learning only.</div>`,
+ life:`<ul>
+  <li>Regular <strong>aerobic exercise</strong> — comparable to mild-moderate antidepressant effect in some trials</li>
+  <li>Consistent <strong>sleep schedule</strong> and good sleep hygiene</li>
+  <li>Social connection and reducing isolation</li>
+  <li>Reducing alcohol and other depressants</li>
+  <li>Structured routine and small achievable goals</li>
+ </ul>`,
+ prog:`<p>Most episodes improve with treatment, but depression is often <strong>recurrent</strong>. About half who recover from one episode will have another. Early treatment, adherence, and relapse-prevention skills improve long-term outcomes.</p>`,
+ myths:`MYTHS`,
+ revise:`<div class="pearl"><b>60-second recall:</b> MDD = ≥2 weeks of depressed mood or anhedonia + ≥5 SIG E CAPS symptoms → impairment. Always screen for mania and suicide. First line = SSRI + CBT/behavioural activation. Often recurrent, so plan for relapse prevention.</div>`,
+ ref:`<ul style="font-size:.85rem">
+  <li>American Psychiatric Association. (2022). <em>DSM-5-TR</em>.</li>
+  <li>World Health Organization. (2019/2021). <em>ICD-11</em>.</li>
+  <li>NICE. (2022). <em>Depression in adults: treatment and management (NG222)</em>.</li>
+  <li>Beck, A. T., & Alford, B. A. (2009). <em>Depression: Causes and Treatment</em>.</li>
+ </ul>`,
+ mythData:[
+  {m:"Depression is just sadness that you can snap out of.",f:"It is a medical condition affecting brain, body, and behaviour — willpower alone rarely resolves it."},
+  {m:"Antidepressants change your personality.",f:"They aim to relieve symptoms so the person's usual self can return; they are not personality-altering."},
+  {m:"Talking about suicide plants the idea.",f:"Asking directly does not increase risk — it opens the door to help and reduces isolation."},
+  {m:"If you have a good life, you can't be depressed.",f:"Depression can occur regardless of external circumstances; biology and thinking styles matter too."}
+ ],
+ quiz:[
+  {q:"Minimum duration of symptoms required for a diagnosis of Major Depressive Disorder?",o:["3 days","1 week","2 weeks","6 months"],a:2,e:"DSM-5-TR requires symptoms for at least 2 weeks."},
+  {q:"Which symptom, along with depressed mood, is a core criterion?",o:["Anhedonia","Hypertension","Flight of ideas","Hyperactivity"],a:0,e:"Anhedonia (loss of interest/pleasure) is the second core symptom."},
+  {q:"What must you always screen for before diagnosing MDD?",o:["Diabetes","Past mania/hypomania","Height","Allergies"],a:1,e:"A history of mania/hypomania points to bipolar disorder, changing management."},
+  {q:"First-line pharmacological treatment is usually:",o:["Benzodiazepines","SSRIs","Antipsychotics","Stimulants"],a:1,e:"SSRIs are generally first-line due to efficacy and tolerability."},
+  {q:"Which CBT technique is often prioritised in severe depression?",o:["Free association","Behavioural activation","Dream analysis","Flooding"],a:1,e:"Behavioural activation re-engages rewarding activity and often lifts mood faster."}
+ ],
+ flash:[
+  {f:"SIG E CAPS stands for?",b:"Sleep, Interest, Guilt, Energy, Concentration, Appetite, Psychomotor, Suicidality — the neurovegetative symptoms of depression."},
+  {f:"Anhedonia means?",b:"Loss of interest or pleasure in activities once enjoyed — a core symptom of depression."},
+  {f:"HPA axis role in depression?",b:"Chronic stress → raised cortisol → over time can reduce hippocampal volume and worsen mood regulation."},
+  {f:"Typical onset time for antidepressant effect?",b:"About 2–6 weeks; patients should be told to expect a delay."}
+ ]
+}
+};
+/* ---- Additional rich content ---- */
+CONTENT.ocd = {
+ def:`<p><strong>Obsessive-Compulsive Disorder (OCD)</strong> involves <strong>obsessions</strong> (unwanted, intrusive thoughts, images, or urges that cause anxiety) and <strong>compulsions</strong> (repetitive acts or mental rituals done to reduce that anxiety).</p>
+ <div class="callout">The relief from a compulsion is temporary — which is exactly why the cycle keeps repeating.</div>`,
+ brain:`<div class="two-col">
+   <div class="mini-card"><h4>CSTC loop</h4><p>Overactivity in the <strong>cortico-striato-thalamo-cortical</strong> circuit (OFC, caudate, thalamus) keeps "error" signals firing.</p></div>
+   <div class="mini-card"><h4>Serotonin</h4><p>Serotonergic dysfunction is implicated — SSRIs at higher doses help.</p></div>
+ </div>`,
+ causes:`<ul><li><strong>Biological:</strong> genetics, CSTC circuit dysfunction, serotonin.</li><li><strong>Psychological:</strong> inflated responsibility, thought-action fusion, intolerance of uncertainty.</li><li><strong>Social:</strong> stress, sometimes post-infectious (PANDAS in children).</li></ul>`,
+ risk:`<ul><li>Family history of OCD</li><li>Onset often in adolescence / early adulthood</li><li>Other anxiety disorders</li><li>Certain personality traits (perfectionism)</li></ul>`,
+ symptoms:`<div class="two-col"><div class="mini-card"><h4>Common obsessions</h4><ul><li>Contamination</li><li>Harm / aggression</li><li>Symmetry / "just right"</li><li>Forbidden thoughts</li></ul></div><div class="mini-card"><h4>Common compulsions</h4><ul><li>Washing / cleaning</li><li>Checking</li><li>Ordering / arranging</li><li>Mental rituals, counting</li></ul></div></div>`,
+ criteria:`<div class="two-col"><div class="mini-card"><h4>DSM-5-TR</h4><p>Obsessions and/or compulsions that are time-consuming (>1 hr/day) or cause marked distress/impairment. Specify insight level.</p></div><div class="mini-card"><h4>ICD-11</h4><p>Persistent obsessions and/or compulsions; grouped under Obsessive-Compulsive and Related Disorders.</p></div></div>
+ <div class="pearl"><b>Clinical pearl:</b> Ego-dystonic — people usually know their obsessions are excessive, which distinguishes OCD from delusions and OCPD.</div>`,
+ ddx:`<div class="flow"><div class="flow-box hl">Repetitive thoughts/behaviours</div><div class="flow-arrow">↓</div><div class="flow-box">Ego-syntonic, personality-wide? → OCPD</div><div class="flow-arrow">↓</div><div class="flow-box">Only about appearance? → Body Dysmorphic Disorder</div><div class="flow-arrow">↓</div><div class="flow-box">Worry about real-life problems? → GAD</div><div class="flow-arrow">↓</div><div class="flow-box hl">OCD</div></div>`,
+ assess:`<ul><li>Clinical interview + MSE</li><li>Map the obsession → anxiety → compulsion → relief cycle</li><li>Assess insight and impairment</li></ul>`,
+ tests:`<div class="mini-card"><h4>Key tool</h4><p><strong>Y-BOCS</strong> (Yale-Brown Obsessive Compulsive Scale) for severity; symptom checklist for content.</p></div>`,
+ treat:`<div class="timeline"><div class="tl-item"><b>First line psychotherapy</b><span>ERP — Exposure and Response Prevention.</span></div><div class="tl-item"><b>First line medication</b><span>SSRIs, often at higher doses than for depression.</span></div><div class="tl-item"><b>Combined</b><span>ERP + SSRI for moderate-severe cases.</span></div></div>`,
+ cbt:`<ul><li><strong>ERP:</strong> gradually face the trigger while <em>not</em> performing the compulsion, letting anxiety fall on its own.</li><li><strong>Cognitive work:</strong> challenge inflated responsibility and thought-action fusion.</li><li><strong>Response prevention hierarchy</strong> built collaboratively.</li></ul><div class="pearl"><b>Clinical pearl:</b> The goal of ERP is <em>habituation</em> and new learning — not white-knuckling. Rituals must be resisted for exposure to work.</div>`,
+ meds:`<div class="callout">SSRIs are first line, often needing <strong>higher doses and longer trials (10–12 weeks)</strong>. Clomipramine (a TCA) is an effective second line.</div>`,
+ life:`<ul><li>Reduce reassurance-seeking (it feeds the cycle)</li><li>Family psychoeducation to stop accommodating rituals</li><li>Stress management and sleep</li></ul>`,
+ prog:`<p>Chronic but very treatable. ERP produces large, durable gains for many. Early treatment and reduced family accommodation improve outcomes.</p>`,
+ myths:"MYTHS",
+ revise:`<div class="pearl"><b>60-second recall:</b> OCD = ego-dystonic obsessions + compulsions, >1 hr/day. Circuit = CSTC overactivity. Gold-standard therapy = ERP. Meds = high-dose SSRI. Measure with Y-BOCS. Stop reassurance and family accommodation.</div>`,
+ ref:`<ul style="font-size:.85rem"><li>APA (2022). <em>DSM-5-TR</em>.</li><li>WHO (2021). <em>ICD-11</em>.</li><li>NICE (2005, updated). <em>OCD and BDD (CG31)</em>.</li></ul>`,
+ mythData:[{m:"OCD just means being neat and organised.",f:"OCD causes real distress and impairment; tidiness by choice is not a disorder."},{m:"People with OCD enjoy their rituals.",f:"Compulsions are done to relieve anxiety, not for pleasure."},{m:"Telling someone to 'just stop' helps.",f:"It doesn't — structured ERP is what reduces symptoms."}],
+ quiz:[{q:"Gold-standard psychotherapy for OCD?",o:["Free association","ERP","Flooding only","Dream analysis"],a:1,e:"Exposure and Response Prevention is first-line."},{q:"Which scale measures OCD severity?",o:["PHQ-9","Y-BOCS","HAM-D","WAIS"],a:1,e:"The Yale-Brown Obsessive Compulsive Scale."},{q:"OCD obsessions are typically:",o:["Ego-syntonic","Ego-dystonic","Pleasurable","Delusional"],a:1,e:"They are unwanted and distressing (ego-dystonic)."},{q:"Brain circuit most implicated in OCD?",o:["CSTC loop","Mesolimbic only","Cerebellum","Brainstem"],a:0,e:"The cortico-striato-thalamo-cortical loop."}],
+ flash:[{f:"What does ERP stand for?",b:"Exposure and Response Prevention — facing triggers without performing compulsions."},{f:"Obsession vs compulsion?",b:"Obsession = intrusive thought causing anxiety; compulsion = act done to relieve it."},{f:"First-line medication for OCD?",b:"SSRIs, often at higher doses and longer trials than in depression."}]
+};
+
+CONTENT.schizophrenia = {
+ def:`<p><strong>Schizophrenia</strong> is a chronic psychotic disorder affecting thinking, perception, emotion, and motivation. It features <strong>positive symptoms</strong> (added experiences like hallucinations), <strong>negative symptoms</strong> (losses like flat affect), and <strong>cognitive symptoms</strong>.</p>`,
+ brain:`<div class="two-col"><div class="mini-card"><h4>Dopamine hypothesis</h4><p>Excess mesolimbic dopamine → positive symptoms; low mesocortical dopamine → negative/cognitive symptoms.</p></div><div class="mini-card"><h4>Structural</h4><p>Enlarged ventricles, reduced grey matter, and altered connectivity.</p></div></div>`,
+ causes:`<ul><li><strong>Biological:</strong> strong genetic loading, dopamine/glutamate, obstetric complications.</li><li><strong>Psychological/Social:</strong> stress (diathesis-stress), urban upbringing, cannabis use, migration.</li></ul>`,
+ risk:`<ul><li>Family history (heritability ~80%)</li><li>Cannabis use in adolescence</li><li>Prenatal/perinatal complications</li><li>Late teens–early 20s onset (earlier in males)</li></ul>`,
+ symptoms:`<div class="two-col"><div class="mini-card"><h4>Positive</h4><ul><li>Hallucinations (often auditory)</li><li>Delusions</li><li>Disorganised speech/behaviour</li></ul></div><div class="mini-card"><h4>Negative (the 5 A's)</h4><ul><li>Affect (flat)</li><li>Alogia</li><li>Avolition</li><li>Anhedonia</li><li>Asociality</li></ul></div></div>`,
+ criteria:`<div class="two-col"><div class="mini-card"><h4>DSM-5-TR</h4><p>≥2 of 5 symptoms for ≥1 month (one must be delusions, hallucinations, or disorganised speech), with continuous signs ≥6 months.</p></div><div class="mini-card"><h4>ICD-11</h4><p>Core symptoms present most of the time for ≥1 month; no 6-month requirement.</p></div></div><div class="pearl"><b>Clinical pearl:</b> DSM needs 6 months total; ICD-11 needs 1 month. This is a common exam distinction.</div>`,
+ ddx:`<div class="flow"><div class="flow-box hl">Psychotic symptoms</div><div class="flow-arrow">↓</div><div class="flow-box"><1 month? → Brief psychotic disorder</div><div class="flow-arrow">↓</div><div class="flow-box">1–6 months? → Schizophreniform</div><div class="flow-arrow">↓</div><div class="flow-box">Prominent mood episodes? → Schizoaffective / mood disorder with psychosis</div><div class="flow-arrow">↓</div><div class="flow-box hl">Schizophrenia (≥6 months)</div></div>`,
+ assess:`<ul><li>Detailed history + collateral information</li><li>MSE focusing on thought form, content, perception</li><li>Rule out substances and organic causes</li></ul>`,
+ tests:`<div class="mini-card"><h4>Key tools</h4><ul><li><strong>PANSS</strong> — Positive and Negative Syndrome Scale</li><li>SAPS / SANS</li><li>Neurocognitive battery for cognitive symptoms</li></ul></div>`,
+ treat:`<div class="timeline"><div class="tl-item"><b>Acute</b><span>Antipsychotic medication is the cornerstone.</span></div><div class="tl-item"><b>Psychosocial</b><span>CBT for psychosis, family intervention, social skills training.</span></div><div class="tl-item"><b>Rehabilitation</b><span>Supported employment, community support, relapse prevention.</span></div></div>`,
+ cbt:`<ul><li><strong>CBTp:</strong> normalise experiences, gently examine evidence for delusions, work with voices.</li><li>Coping strategy enhancement for hallucinations.</li><li>Family psychoeducation to lower expressed emotion.</li></ul>`,
+ meds:`<div class="callout"><strong>Antipsychotics</strong> block D2 receptors. Atypicals (risperidone, olanzapine) are common first line; <strong>clozapine</strong> is reserved for treatment-resistant cases. Prescribing is a psychiatrist's role.</div>`,
+ life:`<ul><li>Avoid cannabis and stimulants</li><li>Structured routine and sleep</li><li>Strong social/family support and low expressed emotion</li></ul>`,
+ prog:`<p>Variable. Roughly the "rule of thirds": some recover well, some have a relapsing course, some have persistent symptoms. Early intervention and adherence strongly improve outcomes.</p>`,
+ myths:"MYTHS",
+ revise:`<div class="pearl"><b>60-second recall:</b> ≥2 symptoms, ≥6 months (DSM) / ≥1 month (ICD). Positive (hallucinations/delusions) + negative (5 A's) + cognitive. Dopamine hypothesis. Antipsychotics + CBTp + family work. Clozapine for resistance. Measure with PANSS.</div>`,
+ ref:`<ul style="font-size:.85rem"><li>APA (2022). <em>DSM-5-TR</em>.</li><li>WHO (2021). <em>ICD-11</em>.</li><li>NICE (2014). <em>Psychosis and schizophrenia in adults (CG178)</em>.</li></ul>`,
+ mythData:[{m:"Schizophrenia means a split personality.",f:"It does not. Split identity is dissociative identity disorder — a different condition."},{m:"People with schizophrenia are violent.",f:"Most are not; they are far more likely to be victims than perpetrators."},{m:"It can never improve.",f:"Many people recover or manage well with treatment and support."}],
+ quiz:[{q:"DSM-5-TR requires continuous signs for at least:",o:["1 week","1 month","6 months","2 years"],a:2,e:"Six months total, with ≥1 month of active symptoms."},{q:"Which are negative symptoms?",o:["Hallucinations","Delusions","Flat affect and avolition","Disorganised speech"],a:2,e:"Negative symptoms are losses — the 5 A's."},{q:"Medication reserved for treatment-resistant schizophrenia:",o:["Sertraline","Clozapine","Diazepam","Lithium"],a:1,e:"Clozapine, with monitoring for agranulocytosis."},{q:"Main scale for symptom severity:",o:["PANSS","BDI","Y-BOCS","MMSE"],a:0,e:"Positive and Negative Syndrome Scale."}],
+ flash:[{f:"The 5 A's of negative symptoms?",b:"Affect (flat), Alogia, Avolition, Anhedonia, Asociality."},{f:"Dopamine hypothesis in one line?",b:"Too much mesolimbic dopamine → positive symptoms; too little mesocortical → negative/cognitive."},{f:"DSM vs ICD duration?",b:"DSM = 6 months total; ICD-11 = 1 month of core symptoms."}]
+};
+CONTENT.gad = {
+ def:`<p><strong>Generalised Anxiety Disorder (GAD)</strong> is excessive, hard-to-control worry about many everyday things, present more days than not for <strong>at least 6 months</strong>, with physical tension.</p>`,
+ brain:`<div class="two-col"><div class="mini-card"><h4>Circuit</h4><p>Overactive amygdala with weaker prefrontal regulation keeps the threat alarm on.</p></div><div class="mini-card"><h4>Chemistry</h4><p>GABA (calming), serotonin, and noradrenaline systems are involved.</p></div></div>`,
+ causes:`<ul><li><strong>Biological:</strong> genetics, temperament (behavioural inhibition).</li><li><strong>Psychological:</strong> intolerance of uncertainty, worry as avoidance.</li><li><strong>Social:</strong> chronic stress, early adversity.</li></ul>`,
+ risk:`<ul><li>Female sex</li><li>Family history of anxiety</li><li>Chronic stress or illness</li><li>Other anxiety/mood disorders</li></ul>`,
+ symptoms:`<div class="mini-card"><h4>Remember: "WATCHERS"-style features</h4><ul><li>Worry (excessive, uncontrollable)</li><li>Restlessness / on edge</li><li>Fatigue</li><li>Concentration problems</li><li>Irritability</li><li>Muscle tension</li><li>Sleep disturbance</li></ul></div>`,
+ criteria:`<div class="two-col"><div class="mini-card"><h4>DSM-5-TR</h4><p>Excessive worry ≥6 months + ≥3 of 6 physical symptoms + impairment.</p></div><div class="mini-card"><h4>ICD-11</h4><p>General apprehension or worry not restricted to any particular situation, with autonomic and tension symptoms.</p></div></div>`,
+ ddx:`<div class="flow"><div class="flow-box hl">Excessive worry</div><div class="flow-arrow">↓</div><div class="flow-box">Discrete attacks? → Panic disorder</div><div class="flow-arrow">↓</div><div class="flow-box">Focused on social judgement? → Social anxiety</div><div class="flow-arrow">↓</div><div class="flow-box">Thyroid/caffeine/substance? → Rule out organic</div><div class="flow-arrow">↓</div><div class="flow-box hl">GAD</div></div>`,
+ assess:`<ul><li>Clinical interview + MSE</li><li>Screen for depression (high comorbidity)</li><li>Rule out hyperthyroidism, caffeine, stimulants</li></ul>`,
+ tests:`<div class="mini-card"><h4>Key tools</h4><ul><li>GAD-7</li><li>Penn State Worry Questionnaire</li><li>Beck Anxiety Inventory</li></ul></div>`,
+ treat:`<div class="timeline"><div class="tl-item"><b>First line</b><span>CBT (worry-focused) and/or an SSRI/SNRI.</span></div><div class="tl-item"><b>Adjuncts</b><span>Relaxation, applied relaxation, mindfulness.</span></div><div class="tl-item"><b>Short term only</b><span>Benzodiazepines — avoided long-term due to dependence.</span></div></div>`,
+ cbt:`<ul><li>Worry postponement and stimulus control</li><li>Cognitive restructuring of catastrophic predictions</li><li>Tolerating uncertainty exposures</li><li>Applied relaxation / breathing retraining</li></ul>`,
+ meds:`<div class="callout">SSRIs/SNRIs are first-line pharmacotherapy. Benzodiazepines give fast relief but carry dependence risk, so they are short-term only. Prescribing is a clinician's decision.</div>`,
+ life:`<ul><li>Reduce caffeine and stimulants</li><li>Regular exercise and sleep</li><li>Scheduled "worry time" to contain rumination</li></ul>`,
+ prog:`<p>Often chronic and fluctuating, but very responsive to CBT. Comorbid depression is common and should be treated together.</p>`,
+ myths:"MYTHS",
+ revise:`<div class="pearl"><b>60-second recall:</b> GAD = uncontrollable worry ≥6 months + ≥3 physical symptoms. Amygdala over prefrontal. First line = CBT + SSRI/SNRI. Measure with GAD-7. Avoid long-term benzodiazepines.</div>`,
+ ref:`<ul style="font-size:.85rem"><li>APA (2022). <em>DSM-5-TR</em>.</li><li>WHO (2021). <em>ICD-11</em>.</li><li>NICE (2011). <em>GAD and panic disorder (CG113)</em>.</li></ul>`,
+ mythData:[{m:"Anxiety is just stress and will pass.",f:"GAD is persistent and impairing, and responds to specific treatment."},{m:"Avoiding what scares you cures anxiety.",f:"Avoidance maintains anxiety; graded exposure reduces it."},{m:"You need medication for life.",f:"Many people improve substantially with CBT alone."}],
+ quiz:[{q:"Minimum duration of worry for GAD?",o:["2 weeks","1 month","6 months","1 year"],a:2,e:"At least 6 months, more days than not."},{q:"First-line psychotherapy for GAD?",o:["CBT","Psychoanalysis","Hypnosis","None"],a:0,e:"CBT is first-line."},{q:"Which medication class is avoided long-term?",o:["SSRIs","SNRIs","Benzodiazepines","Buspirone"],a:2,e:"Benzodiazepines carry dependence risk."},{q:"Screening tool for GAD?",o:["GAD-7","PHQ-9","Y-BOCS","PANSS"],a:0,e:"The GAD-7."}],
+ flash:[{f:"GAD duration criterion?",b:"Excessive, uncontrollable worry for at least 6 months, more days than not."},{f:"Screening tool for GAD?",b:"GAD-7."},{f:"Why avoid long-term benzodiazepines?",b:"Tolerance and dependence; used only short-term for acute relief."}]
+};
+
+CONTENT.ptsd = {
+ def:`<p><strong>Post-Traumatic Stress Disorder (PTSD)</strong> develops after exposure to actual or threatened death, serious injury, or violence, and involves four symptom clusters lasting more than a month.</p>`,
+ brain:`<div class="two-col"><div class="mini-card"><h4>Fear circuit</h4><p>Hyperactive amygdala, underactive prefrontal cortex, and a smaller hippocampus disrupt contextualising memories.</p></div><div class="mini-card"><h4>Stress axis</h4><p>Dysregulated HPA axis and noradrenaline drive hyperarousal.</p></div></div>`,
+ causes:`<ul><li><strong>Biological:</strong> genetic vulnerability, prior trauma, HPA dysregulation.</li><li><strong>Psychological:</strong> peritraumatic dissociation, negative appraisals.</li><li><strong>Social:</strong> lack of support, ongoing stress.</li></ul>`,
+ risk:`<ul><li>Severity and proximity of trauma</li><li>Prior trauma or mental illness</li><li>Low social support</li><li>Combat, assault, disaster exposure</li></ul>`,
+ symptoms:`<div class="two-col"><div class="mini-card"><h4>4 clusters</h4><ul><li>Re-experiencing (flashbacks, nightmares)</li><li>Avoidance</li><li>Negative mood/cognition</li><li>Hyperarousal</li></ul></div><div class="mini-card"><h4>ICD-11 core 3</h4><ul><li>Re-experiencing in the here-and-now</li><li>Avoidance</li><li>Sense of current threat</li></ul></div></div>`,
+ criteria:`<div class="two-col"><div class="mini-card"><h4>DSM-5-TR</h4><p>Exposure + all four symptom clusters for >1 month with impairment.</p></div><div class="mini-card"><h4>ICD-11</h4><p>Three core elements; also defines <strong>Complex PTSD</strong> with additional self-organisation disturbances.</p></div></div><div class="pearl"><b>Clinical pearl:</b> ICD-11 introduced Complex PTSD — worth knowing for exams and for trauma from prolonged/repeated events.</div>`,
+ ddx:`<div class="flow"><div class="flow-box hl">Post-trauma distress</div><div class="flow-arrow">↓</div><div class="flow-box"><1 month? → Acute stress disorder</div><div class="flow-arrow">↓</div><div class="flow-box">Prolonged/repeated trauma + self disturbance? → Complex PTSD</div><div class="flow-arrow">↓</div><div class="flow-box hl">PTSD</div></div>`,
+ assess:`<ul><li>Trauma-informed clinical interview</li><li>MSE + risk assessment</li><li>Screen for comorbid depression and substance use</li></ul>`,
+ tests:`<div class="mini-card"><h4>Key tools</h4><ul><li>CAPS-5 (gold standard interview)</li><li>PCL-5 (self-report)</li><li>IES-R</li></ul></div>`,
+ treat:`<div class="timeline"><div class="tl-item"><b>First line</b><span>Trauma-focused CBT and EMDR.</span></div><div class="tl-item"><b>Medication</b><span>SSRIs/SNRIs where therapy alone is insufficient.</span></div><div class="tl-item"><b>Prazosin</b><span>Sometimes used for trauma nightmares.</span></div></div>`,
+ cbt:`<ul><li><strong>Prolonged exposure</strong> to trauma memories and reminders</li><li><strong>Cognitive processing therapy</strong> to rework "stuck points"</li><li>Grounding and arousal-reduction skills</li></ul>`,
+ meds:`<div class="callout">SSRIs (sertraline, paroxetine) have the best evidence. Benzodiazepines are generally avoided. Prescribing is a clinician's role.</div>`,
+ life:`<ul><li>Predictable routine and safety</li><li>Sleep and arousal regulation</li><li>Social support and peer connection</li></ul>`,
+ prog:`<p>Many recover with trauma-focused therapy. Early support and treating comorbidity improve outcomes; untreated, it can become chronic.</p>`,
+ myths:"MYTHS",
+ revise:`<div class="pearl"><b>60-second recall:</b> PTSD = trauma exposure + 4 clusters >1 month. ICD-11 adds Complex PTSD. First line = trauma-focused CBT / EMDR. Meds = SSRIs. Assess with CAPS-5 / PCL-5.</div>`,
+ ref:`<ul style="font-size:.85rem"><li>APA (2022). <em>DSM-5-TR</em>.</li><li>WHO (2021). <em>ICD-11</em>.</li><li>NICE (2018). <em>PTSD (NG116)</em>.</li></ul>`,
+ mythData:[{m:"Only soldiers get PTSD.",f:"Any trauma — assault, accident, disaster, abuse — can cause it."},{m:"Talking about trauma always makes it worse.",f:"Structured, trauma-focused therapy helps process it safely."},{m:"PTSD appears immediately.",f:"Onset can be delayed by months."}],
+ quiz:[{q:"Minimum duration for PTSD (vs acute stress disorder)?",o:["3 days","1 week","1 month","1 year"],a:2,e:"Symptoms must last more than 1 month."},{q:"Gold-standard PTSD interview?",o:["CAPS-5","PHQ-9","Y-BOCS","WAIS"],a:0,e:"Clinician-Administered PTSD Scale."},{q:"Which is a first-line therapy?",o:["EMDR","Flooding of unrelated fears","Free association","None"],a:0,e:"EMDR and trauma-focused CBT are first-line."},{q:"ICD-11 added which related diagnosis?",o:["Complex PTSD","Bipolar III","Mixed anxiety","None"],a:0,e:"Complex PTSD."}],
+ flash:[{f:"Four PTSD symptom clusters?",b:"Re-experiencing, avoidance, negative mood/cognition, hyperarousal."},{f:"First-line PTSD therapies?",b:"Trauma-focused CBT and EMDR."},{f:"What is Complex PTSD?",b:"An ICD-11 diagnosis after prolonged trauma, adding disturbances in self-organisation."}]
+};
+
+CONTENT.bipolar = {
+ def:`<p><strong>Bipolar Disorder</strong> involves episodes of <strong>mania or hypomania</strong> alternating with periods of <strong>depression</strong>. Bipolar I requires at least one manic episode; Bipolar II requires hypomania plus major depression.</p>`,
+ brain:`<div class="two-col"><div class="mini-card"><h4>Neurochemistry</h4><p>Dysregulation across dopamine, serotonin, and glutamate with disrupted circadian rhythms.</p></div><div class="mini-card"><h4>Circuits</h4><p>Altered prefrontal–limbic regulation of emotion.</p></div></div>`,
+ causes:`<ul><li><strong>Biological:</strong> very high heritability, circadian disruption.</li><li><strong>Psychological/Social:</strong> stressful life events, sleep loss, substance use as triggers.</li></ul>`,
+ risk:`<ul><li>Strong family history</li><li>Early adulthood onset</li><li>Sleep disruption</li><li>Stimulant/substance use</li></ul>`,
+ symptoms:`<div class="two-col"><div class="mini-card"><h4>Mania — DIG FAST</h4><ul><li>Distractibility</li><li>Indiscretion / risk</li><li>Grandiosity</li><li>Flight of ideas</li><li>Activity increase</li><li>Sleep decreased need</li><li>Talkativeness</li></ul></div><div class="mini-card"><h4>Depression</h4><ul><li>Low mood, anhedonia</li><li>Fatigue, guilt</li><li>Sleep/appetite change</li></ul></div></div>`,
+ criteria:`<div class="two-col"><div class="mini-card"><h4>DSM-5-TR</h4><p>Mania = ≥1 week of elevated/irritable mood + ≥3 DIG FAST (4 if irritable). Hypomania = ≥4 days, less severe, no marked impairment.</p></div><div class="mini-card"><h4>ICD-11</h4><p>Similar; Bipolar I (manic episodes) and Bipolar II (hypomania + depression).</p></div></div><div class="pearl"><b>Clinical pearl:</b> Antidepressant monotherapy can trigger a switch to mania — always screen mood history before prescribing.</div>`,
+ ddx:`<div class="flow"><div class="flow-box hl">Mood episodes</div><div class="flow-arrow">↓</div><div class="flow-box">Full mania ≥1 week? → Bipolar I</div><div class="flow-arrow">↓</div><div class="flow-box">Hypomania + major depression? → Bipolar II</div><div class="flow-arrow">↓</div><div class="flow-box">Chronic mild highs & lows ≥2 yrs? → Cyclothymia</div><div class="flow-arrow">↓</div><div class="flow-box hl">Bipolar spectrum</div></div>`,
+ assess:`<ul><li>Longitudinal mood history + collateral</li><li>MSE during and between episodes</li><li>Rule out substances, thyroid</li></ul>`,
+ tests:`<div class="mini-card"><h4>Key tools</h4><ul><li>Mood Disorder Questionnaire (MDQ)</li><li>Young Mania Rating Scale (YMRS)</li><li>Mood charting</li></ul></div>`,
+ treat:`<div class="timeline"><div class="tl-item"><b>Acute mania</b><span>Mood stabiliser (lithium/valproate) and/or antipsychotic.</span></div><div class="tl-item"><b>Maintenance</b><span>Lithium is the classic long-term stabiliser.</span></div><div class="tl-item"><b>Psychotherapy</b><span>Psychoeducation, IPSRT, CBT, family-focused therapy.</span></div></div>`,
+ cbt:`<ul><li>Mood monitoring and early-warning-sign plans</li><li>Regulating sleep and daily rhythms (IPSRT)</li><li>Cognitive work on depressive episodes</li></ul>`,
+ meds:`<div class="callout"><strong>Lithium</strong> is the gold-standard mood stabiliser (needs level monitoring). Valproate and atypical antipsychotics are also used. Antidepressants are used cautiously. Prescribing belongs to a psychiatrist.</div>`,
+ life:`<ul><li>Protect sleep — loss can trigger mania</li><li>Regular daily routine</li><li>Avoid alcohol and stimulants</li></ul>`,
+ prog:`<p>A lifelong, episodic condition, but many achieve stability with medication + psychoeducation. Adherence and rhythm regulation are key.</p>`,
+ myths:"MYTHS",
+ revise:`<div class="pearl"><b>60-second recall:</b> Bipolar I = mania ≥1 week (DIG FAST); Bipolar II = hypomania + depression. Lithium = gold-standard stabiliser. Beware antidepressant-induced switch. Protect sleep. Measure with YMRS / MDQ.</div>`,
+ ref:`<ul style="font-size:.85rem"><li>APA (2022). <em>DSM-5-TR</em>.</li><li>WHO (2021). <em>ICD-11</em>.</li><li>NICE (2014). <em>Bipolar disorder (CG185)</em>.</li></ul>`,
+ mythData:[{m:"Bipolar just means quick mood swings.",f:"It involves sustained episodes lasting days to weeks, not moment-to-moment changes."},{m:"People with bipolar can't lead stable lives.",f:"Many do, with treatment and routine."},{m:"Mania is always fun and euphoric.",f:"It can be irritable, risky, and dangerous, and is often followed by crashes."}],
+ quiz:[{q:"Minimum duration of a manic episode (DSM)?",o:["4 days","1 week","2 weeks","1 month"],a:1,e:"At least 1 week (or any duration if hospitalisation needed)."},{q:"Gold-standard long-term mood stabiliser?",o:["Sertraline","Lithium","Diazepam","Risperidone"],a:1,e:"Lithium, with blood-level monitoring."},{q:"Bipolar II requires which highs?",o:["Full mania","Hypomania","Psychosis","None"],a:1,e:"Hypomania plus major depression."},{q:"A key risk when giving antidepressants alone in bipolar:",o:["Weight loss","Switch to mania","Better sleep","Nothing"],a:1,e:"Antidepressant-induced manic switch."}],
+ flash:[{f:"DIG FAST is a mnemonic for?",b:"Manic symptoms: Distractibility, Indiscretion, Grandiosity, Flight of ideas, Activity, Sleep decreased, Talkativeness."},{f:"Bipolar I vs II?",b:"I needs a full manic episode; II needs hypomania plus major depression."},{f:"Gold-standard mood stabiliser?",b:"Lithium."}]
+};
+/* ============================================================
+   TEMPLATE GENERATOR for disorders without full content yet
+============================================================ */
+function templateContent(d){
+ const cap = d.name;
+ return {
+  def:`<p><strong>${cap}</strong> — ${d.sub}</p><div class="callout">This guide follows the same 18-step structure as every disorder page, so the layout stays familiar as more detail is added.</div>`,
+  brain:`<p>Key brain systems involved in <strong>${cap}</strong> typically include emotion-regulation circuits (prefrontal cortex and amygdala) and relevant neurotransmitter pathways. Detailed neurobiology is being expanded for this page.</p>
+  <div class="two-col"><div class="mini-card"><h4>Circuits</h4><p>Prefrontal–limbic regulation and associated networks.</p></div><div class="mini-card"><h4>Chemistry</h4><p>Neurotransmitter systems relevant to ${d.cat.toLowerCase()} presentations.</p></div></div>`,
+  causes:`<ul><li><strong>Biological:</strong> genetic and neurobiological vulnerability.</li><li><strong>Psychological:</strong> thinking styles, coping, and learning history.</li><li><strong>Social:</strong> stress, environment, and support.</li></ul>`,
+  risk:`<ul><li>Family history</li><li>Early adversity or stress</li><li>Co-occurring mental health conditions</li><li>Relevant developmental or medical factors</li></ul>`,
+  symptoms:`<div class="mini-card"><h4>Typical features</h4><p>Core symptoms of ${cap} are summarised here in plain language. Symptom clusters and severity guide diagnosis and treatment planning.</p></div>`,
+  criteria:`<div class="two-col"><div class="mini-card"><h4>DSM-5-TR</h4><p>Diagnostic criteria for ${cap} require characteristic symptoms causing distress or impairment, not better explained by another condition.</p></div><div class="mini-card"><h4>ICD-11</h4><p>The WHO classification defines ${cap} with corresponding core features; some duration and threshold rules differ from the DSM.</p></div></div>`,
+  ddx:`<div class="flow"><div class="flow-box hl">Presenting symptoms</div><div class="flow-arrow">↓</div><div class="flow-box">Rule out medical / substance causes</div><div class="flow-arrow">↓</div><div class="flow-box">Distinguish from overlapping disorders in the ${d.cat.toLowerCase()} group</div><div class="flow-arrow">↓</div><div class="flow-box hl">${cap}</div></div>`,
+  assess:`<ul><li>Clinical interview and history</li><li>Mental Status Examination (MSE)</li><li>Risk assessment where relevant</li><li>Collateral information and rule-outs</li></ul>`,
+  tests:`<div class="mini-card"><h4>Assessment tools</h4><p>Standardised scales and, where indicated, cognitive or personality assessment support diagnosis and measure change over time.</p></div>`,
+  treat:`<div class="timeline"><div class="tl-item"><b>Psychological</b><span>Evidence-based psychotherapy tailored to ${cap}.</span></div><div class="tl-item"><b>Pharmacological</b><span>Medication where indicated, prescribed by a clinician.</span></div><div class="tl-item"><b>Psychosocial</b><span>Support, psychoeducation, and relapse prevention.</span></div></div>`,
+  cbt:`<ul><li>Psychoeducation about the ${cap} cycle</li><li>Cognitive restructuring of unhelpful beliefs</li><li>Behavioural strategies and skills practice</li><li>Relapse-prevention planning</li></ul>`,
+  meds:`<div class="callout">Medication options for ${cap} depend on presentation and are chosen by a prescriber. This page is educational and not prescribing advice.</div>`,
+  life:`<ul><li>Sleep, exercise, and routine</li><li>Reducing alcohol and stimulants</li><li>Social connection and stress management</li></ul>`,
+  prog:`<p>With appropriate treatment and support, outcomes for ${cap} can improve substantially. Early intervention and addressing comorbidity help.</p>`,
+  myths:"MYTHS",
+  revise:`<div class="pearl"><b>60-second recall:</b> ${cap} — ${d.sub} Diagnosed via DSM-5-TR / ICD-11 criteria after ruling out medical causes. Managed with evidence-based therapy ± medication plus psychosocial support.</div>`,
+  ref:`<ul style="font-size:.85rem"><li>APA (2022). <em>DSM-5-TR</em>.</li><li>WHO (2021). <em>ICD-11</em>.</li></ul>`,
+  mythData:[{m:`${cap} is not a real condition.`,f:`It is a recognised diagnosis in both the DSM-5-TR and ICD-11.`},{m:`People with ${cap} just need to try harder.`,f:`Effort alone does not resolve it; structured, evidence-based treatment helps.`}],
+  quiz:[{q:`${cap} is classified under which broad group?`,o:[d.cat,"Random","None","Unknown"],a:0,e:`It sits within the ${d.cat} group of conditions.`},{q:`Which two systems classify ${cap}?`,o:["DSM-5-TR & ICD-11","Only local guidelines","No system","Self-report only"],a:0,e:"Both the DSM-5-TR and ICD-11 include it."},{q:`First step before diagnosing ${cap}?`,o:["Rule out medical/substance causes","Prescribe immediately","Ignore history","None"],a:0,e:"Always exclude organic and substance causes first."}],
+  flash:[{f:`What group does ${cap} belong to?`,b:`${d.cat}.`},{f:`Two classification systems used?`,b:`DSM-5-TR and ICD-11.`},{f:`One-line summary of ${cap}?`,b:`${d.sub}`}]
+ };
+}
+function getContent(id){ return CONTENT[id] || templateContent(DISORDERS.find(x=>x.id===id)); }
+/* ============================================================
+   ROUTER + PAGE RENDERERS
+============================================================ */
+const state = { bookmarks: new Set(), progress: new Set() };
+try{
+  const bm = JSON.parse(localStorage.getItem('ps_bookmarks')||'[]'); bm.forEach(x=>state.bookmarks.add(x));
+  const pr = JSON.parse(localStorage.getItem('ps_progress')||'[]'); pr.forEach(x=>state.progress.add(x));
+}catch(e){}
+function saveState(){
+  try{ localStorage.setItem('ps_bookmarks',JSON.stringify([...state.bookmarks]));
+       localStorage.setItem('ps_progress',JSON.stringify([...state.progress])); }catch(e){}
+}
+let currentDisorder=null;
+
+function show(pageId){
+  document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+  const el=document.getElementById('page-'+pageId);
+  if(el) el.classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'auto'});
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.dataset.nav===pageId));
+  document.getElementById('navLinks').classList.remove('open');
+}
+function route(){
+  const h=(location.hash||'#home').slice(1);
+  if(h.startsWith('disorder-')){ renderDisorder(h.replace('disorder-','')); show('disorder'); return; }
+  const known=['home','learn','disorders','notes','play','blog','research','resources','about'];
+  show(known.includes(h)?h:'home');
+}
+document.addEventListener('click',e=>{
+  const a=e.target.closest('[data-nav]');
+  if(a){ e.preventDefault(); const t=a.dataset.nav;
+    if(t.startsWith('disorder-')){ location.hash=t; } else { location.hash=t; } }
+});
+window.addEventListener('hashchange',route);
+
+/* ---- Learning hub ---- */
+function renderHub(){
+  document.getElementById('hubGrid').innerHTML = HUB.map(h=>`
+    <div class="card"><div class="chip-icon ${h.c}">${h.i}</div>
+    <h3>${h.t}</h3><p>${h.d}</p></div>`).join('');
+}
+/* ---- Disorders grid ---- */
+function renderDisorderGrid(filter=''){
+  const f=filter.toLowerCase();
+  const list=DISORDERS.filter(d=>d.name.toLowerCase().includes(f)||d.cat.toLowerCase().includes(f)||d.sub.toLowerCase().includes(f));
+  const grid=document.getElementById('disorderGrid');
+  if(!list.length){ grid.innerHTML=`<p style="color:var(--ink-faint)">No disorders match "${filter}". Try another term.</p>`; return; }
+  grid.innerHTML=list.map(d=>`
+    <a class="card card-link" href="#disorder-${d.id}" data-nav="disorder-${d.id}">
+      <div style="display:flex;justify-content:space-between;align-items:start">
+        <div class="chip-icon c-teal" style="font-size:1.5rem">${d.icon}</div>
+        <span class="tag ${d.tag}">${d.cat}</span>
+      </div>
+      <h3>${d.name}${state.bookmarks.has(d.id)?' ★':''}</h3>
+      <p>${d.sub}</p>
+    </a>`).join('');
+}
+/* ---- Disorder detail ---- */
+function renderDisorder(id){
+  const d=DISORDERS.find(x=>x.id===id); if(!d) return;
+  currentDisorder=d;
+  const c=getContent(id);
+  state.progress.add(id); saveState();
+  document.getElementById('dTitle').textContent=d.name;
+  document.getElementById('dHeroTitle').textContent=d.name;
+  document.getElementById('dHeroSub').textContent=d.sub;
+  updateBookmarkBtn();
+
+  // TOC
+  document.getElementById('dToc').innerHTML='<b style="font-size:.8rem;color:var(--ink-faint);display:block;margin-bottom:6px">ON THIS PAGE</b>'+
+    SECTIONS.map((s,i)=>`<a href="#sec-${s[0]}" onclick="scrollSec('${s[0]}');return false;">${i+1}. ${s[1]}</a>`).join('');
+
+  // Body
+  let html='';
+  SECTIONS.forEach((s,i)=>{
+    const key=s[0]; let inner='';
+    if(key==='myths'){ inner=renderMyths(c.mythData); }
+    else if(key==='pdf'){ inner=`<p>Save this full guide as a printable, one-page-friendly document.</p><button class="btn btn-primary" onclick="downloadDisorderPDF()">⬇ Download ${d.name} PDF</button>`; }
+    else { inner=c[key]||'<p>Content coming soon.</p>'; }
+    html+=`<div class="dsec" id="sec-${key}"><h2><span class="n">${i+1}</span>${s[1]}</h2>${inner}</div>`;
+  });
+  // interactive block
+  html+=`<div class="dsec"><h2><span class="n">✦</span>Test Yourself</h2>
+    <div class="section-head" style="margin:6px 0 4px"><span class="tag tag-lav">FLASHCARDS</span></div>
+    ${renderFlashcards(c.flash)}
+    <div class="section-head" style="margin:26px 0 4px"><span class="tag tag-teal">QUICK QUIZ</span></div>
+    <div id="quizBox">${renderQuiz(c.quiz)}</div>
+  </div>`;
+  document.getElementById('dBody').innerHTML=html;
+  initQuiz();
+}
+function scrollSec(k){ const el=document.getElementById('sec-'+k); if(el) el.scrollIntoView({behavior:'smooth'}); }
+
+function renderMyths(data){
+  return '<div class="flip-grid">'+data.map(x=>`
+    <div class="flip" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-face flip-front"><b>Myth</b><span>${x.m}</span><span class="flip-hint">tap to reveal fact →</span></div>
+        <div class="flip-face flip-back"><b>Fact</b><span>${x.f}</span></div>
+      </div>
+    </div>`).join('')+'</div>';
+}
+/* ---- Flashcards ---- */
+let fcState={};
+function renderFlashcards(cards){
+  const uid='fc'+Math.random().toString(36).slice(2,7);
+  fcState[uid]={i:0,cards};
+  return `<div class="fc-stage" id="${uid}">
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-face fc-front">${cards[0].f}</div>
+        <div class="fc-face fc-back">${cards[0].b}</div>
+      </div>
+    </div>
+    <div class="fc-nav">
+      <button class="icon-btn" onclick="fcMove('${uid}',-1)" aria-label="Previous card">‹</button>
+      <span class="fc-count" id="${uid}-count">1 / ${cards.length}</span>
+      <button class="icon-btn" onclick="fcMove('${uid}',1)" aria-label="Next card">›</button>
+    </div></div>`;
+}
+function fcMove(uid,dir){
+  const st=fcState[uid]; if(!st) return;
+  st.i=(st.i+dir+st.cards.length)%st.cards.length;
+  const stage=document.getElementById(uid);
+  const card=stage.querySelector('.fc'); card.classList.remove('flipped');
+  stage.querySelector('.fc-front').textContent=st.cards[st.i].f;
+  stage.querySelector('.fc-back').textContent=st.cards[st.i].b;
+  document.getElementById(uid+'-count').textContent=`${st.i+1} / ${st.cards.length}`;
+}
+/* ---- Quiz ---- */
+function renderQuiz(qs){
+  return qs.map((q,qi)=>`
+    <div class="quiz-q" data-qi="${qi}">
+      <h4>${qi+1}. ${q.q}</h4>
+      ${q.o.map((o,oi)=>`<button class="quiz-opt" data-oi="${oi}">${o}</button>`).join('')}
+      <div class="quiz-expl">${q.e}</div>
+    </div>`).join('')+`<div class="quiz-score hidden" id="quizScore"></div>`;
+}
+function initQuiz(){
+  const box=document.getElementById('quizBox'); if(!box) return;
+  const c=getContent(currentDisorder.id); const qs=c.quiz;
+  let answered=0,correct=0;
+  box.querySelectorAll('.quiz-q').forEach(qEl=>{
+    const qi=+qEl.dataset.qi;
+    qEl.querySelectorAll('.quiz-opt').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        if(qEl.classList.contains('answered')) return;
+        const oi=+btn.dataset.oi; qEl.classList.add('answered');
+        answered++;
+        if(oi===qs[qi].a){ btn.classList.add('correct'); correct++; }
+        else{ btn.classList.add('wrong'); qEl.querySelectorAll('.quiz-opt')[qs[qi].a].classList.add('correct'); }
+        if(answered===qs.length){
+          const s=document.getElementById('quizScore');
+          s.classList.remove('hidden');
+          s.textContent=`You scored ${correct} / ${qs.length}. ${correct===qs.length?'Perfect recall! 🎉':correct>=qs.length/2?'Nice work — review the ones you missed.':'Keep going — revisit the sections above.'}`;
+        }
+      });
+    });
+  });
+}
+/* ---- Bookmark ---- */
+function updateBookmarkBtn(){
+  const b=document.getElementById('bookmarkBtn');
+  const on=state.bookmarks.has(currentDisorder.id);
+  b.textContent=on?'★ Bookmarked':'☆ Bookmark';
+}
+function toggleBookmark(){
+  const id=currentDisorder.id;
+  if(state.bookmarks.has(id)) state.bookmarks.delete(id); else state.bookmarks.add(id);
+  saveState(); updateBookmarkBtn();
+}
+/* ---- PDF / resume (print-based) ---- */
+function downloadDisorderPDF(){
+  const d=currentDisorder; const c=getContent(d.id);
+  let body=SECTIONS.filter(s=>s[0]!=='pdf').map((s,i)=>{
+    let inner = s[0]==='myths'
+      ? c.mythData.map(m=>`<p><b>Myth:</b> ${m.m}<br><b>Fact:</b> ${m.f}</p>`).join('')
+      : (c[s[0]]||'');
+    return `<h2>${SECTIONS.indexOf(s)+1}. ${s[1]}</h2>${inner}`;
+  }).join('');
+  printDoc(`${d.name} — PsychSimplified`, `<h1>${d.name}</h1><p><em>${d.sub}</em></p>${body}`);
+}
+function downloadResume(){
+  printDoc('Résumé — PsychSimplified', document.getElementById('aboutBody').innerHTML +
+    '<p style="margin-top:16px"><strong>ORCID:</strong> 0009-0004-7776-5885</p>');
+}
+function printDoc(title, inner){
+  const w=window.open('','_blank');
+  if(!w){ alert('Please allow pop-ups to download the PDF.'); return; }
+  w.document.write(`<!doctype html><html><head><title>${title}</title>
+  <style>body{font-family:Georgia,serif;max-width:760px;margin:30px auto;padding:0 24px;color:#16283A;line-height:1.6}
+  h1{font-size:1.8rem;border-bottom:3px solid #0D9488;padding-bottom:8px}
+  h2{font-size:1.15rem;color:#0B7A70;margin-top:22px}
+  .mini-card,.callout,.pearl,.flow-box,.tl-item,.two-col{border:1px solid #ddd;border-radius:8px;padding:8px 12px;margin:8px 0}
+  ul{margin:6px 0 6px 20px}.flow-arrow{color:#888}
+  @media print{button{display:none}}</style></head>
+  <body>${inner}<p style="margin-top:30px;font-size:.8rem;color:#888">Educational use only — not a substitute for professional care. © PsychSimplified</p>
+  <script>window.onload=()=>window.print()<\/script></body></html>`);
+  w.document.close();
+}
+/* ============================================================
+   SEARCH
+============================================================ */
+function buildSearchIndex(){
+  const idx=[];
+  DISORDERS.forEach(d=>idx.push({title:d.name,sub:d.sub,hash:'disorder-'+d.id,kw:(d.name+' '+d.sub+' '+d.cat).toLowerCase()}));
+  HUB.forEach(h=>idx.push({title:h.t,sub:h.d,hash:'learn',kw:(h.t+' '+h.d).toLowerCase()}));
+  idx.push({title:'Study Notes',sub:'High-yield revision sheets',hash:'notes',kw:'notes revision exam'});
+  idx.push({title:'Resources',sub:'Worksheets and templates',hash:'resources',kw:'cbt worksheet mse hopi template download'});
+  idx.push({title:'Research',sub:'Publications and thesis',hash:'research',kw:'research publications thesis mhls'});
+  return idx;
+}
+const SEARCH_IDX=buildSearchIndex();
+function doSearch(q){
+  q=q.trim().toLowerCase();
+  if(!q) return [];
+  const stop=['what','is','the','how','are','of','a','to','and','treated','treatment','symptoms','for'];
+  const terms=q.split(/\s+/).filter(t=>!stop.includes(t));
+  return SEARCH_IDX.map(item=>{
+    let score=0;
+    terms.forEach(t=>{ if(item.kw.includes(t)) score+= item.title.toLowerCase().includes(t)?3:1; });
+    if(item.kw.includes(q)) score+=2;
+    return {item,score};
+  }).filter(r=>r.score>0).sort((a,b)=>b.score-a.score).slice(0,6).map(r=>r.item);
+}
+function runSearch(){
+  const q=document.getElementById('siteSearch').value;
+  const box=document.getElementById('searchResults');
+  const res=doSearch(q);
+  if(!q.trim()){ box.classList.add('hidden'); return; }
+  box.classList.remove('hidden');
+  if(!res.length){ box.innerHTML=`<a href="#disorders" data-nav="disorders">No exact match for "${q}". <small>Browse the full Disorders Library instead →</small></a>`; return; }
+  box.innerHTML=res.map(r=>`<a href="#${r.hash}" data-nav="${r.hash}" onclick="setTimeout(()=>document.getElementById('searchResults').classList.add('hidden'),50)">${r.title}<small>${r.sub}</small></a>`).join('');
+}
+document.getElementById('siteSearch').addEventListener('input',runSearch);
+document.getElementById('siteSearch').addEventListener('keydown',e=>{ if(e.key==='Enter') runSearch(); });
+
+/* ============================================================
+   STUDY NOTES
+============================================================ */
+const NOTES=[
+ {t:"Depression — 1-Page Sheet",c:"tag-lav",p:["≥2 weeks: depressed mood OR anhedonia + ≥5 SIG E CAPS","Screen mania + suicide always","1st line: SSRI + behavioural activation","Often recurrent → relapse prevention"]},
+ {t:"Anxiety Disorders Overview",c:"tag-teal",p:["GAD: worry ≥6 months, GAD-7","Panic: recurrent attacks + fear of attacks","1st line: CBT + SSRI/SNRI","Avoid long-term benzodiazepines"]},
+ {t:"Schizophrenia High-Yield",c:"tag-rose",p:["≥2 symptoms, 6 months (DSM) / 1 month (ICD)","Positive + negative (5 A's) + cognitive","Dopamine hypothesis","Antipsychotics; clozapine if resistant; PANSS"]},
+ {t:"Bipolar Quick Notes",c:"tag-lav",p:["Mania ≥1 week (DIG FAST)","BP-I mania; BP-II hypomania + depression","Lithium = gold standard","Beware antidepressant switch"]},
+ {t:"OCD Essentials",c:"tag-teal",p:["Obsessions + compulsions >1 hr/day","Ego-dystonic","ERP = gold standard","High-dose SSRI; Y-BOCS"]},
+ {t:"PTSD Snapshot",c:"tag-amber",p:["Trauma + 4 clusters >1 month","ICD-11 adds Complex PTSD","Trauma-focused CBT / EMDR","SSRIs; CAPS-5 / PCL-5"]}
+];
+function renderNotes(){
+  document.getElementById('notesGrid').innerHTML=NOTES.map(n=>`
+   <div class="card">
+     <span class="tag ${n.c}">REVISION</span>
+     <h3 style="margin-top:12px">${n.t}</h3>
+     <ul style="padding-left:18px;color:var(--ink-soft);font-size:.88rem;margin-top:8px">
+       ${n.p.map(x=>`<li>${x}</li>`).join('')}
+     </ul>
+     <button class="btn btn-ghost" style="margin-top:14px;padding:9px 16px;font-size:.85rem"
+       onclick='printDoc("${n.t}","<h1>${n.t}</h1><ul>${n.p.map(x=>"<li>"+x+"</li>").join("")}</ul>")'>⬇ Print sheet</button>
+   </div>`).join('');
+}
+/* ============================================================
+   INTERACTIVE GAMES
+============================================================ */
+const SORT_DATA={
+ disorders:[{id:"dep",name:"Depression",icon:"🌧️"},{id:"ocd",name:"OCD",icon:"🔁"},{id:"scz",name:"Schizophrenia",icon:"🌀"}],
+ symptoms:[
+   {t:"Anhedonia (loss of pleasure)",fit:"dep"},
+   {t:"Low mood most of the day",fit:"dep"},
+   {t:"Intrusive contamination fears",fit:"ocd"},
+   {t:"Repeated hand-washing rituals",fit:"ocd"},
+   {t:"Auditory hallucinations",fit:"scz"},
+   {t:"Flat affect and avolition",fit:"scz"}
+ ]
+};
+function renderSortGame(){
+  const el=document.getElementById('sortGame');
+  el.innerHTML=`
+   <div class="card" style="margin-bottom:16px">
+     <b style="font-size:.85rem;color:var(--ink-faint)">SYMPTOMS — drag these</b>
+     <div id="symPool" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+       ${SORT_DATA.symptoms.map((s,i)=>`<div class="tag tag-lav" draggable="true" data-fit="${s.fit}" data-i="${i}" style="cursor:grab;padding:9px 14px;font-size:.85rem">${s.t}</div>`).join('')}
+     </div>
+   </div>
+   <div class="grid grid-3">
+     ${SORT_DATA.disorders.map(d=>`
+       <div class="card drop-zone" data-id="${d.id}" style="min-height:130px">
+         <div class="chip-icon c-teal" style="font-size:1.3rem">${d.icon}</div>
+         <h3 style="margin:8px 0">${d.name}</h3>
+         <div class="drop-list" style="display:flex;flex-direction:column;gap:6px"></div>
+       </div>`).join('')}
+   </div>
+   <div id="sortMsg" class="notice hidden" style="margin-top:14px"></div>`;
+  let dragged=null;
+  el.querySelectorAll('[draggable]').forEach(t=>{
+    t.addEventListener('dragstart',()=>dragged=t);
+  });
+  el.querySelectorAll('.drop-zone').forEach(z=>{
+    z.addEventListener('dragover',e=>e.preventDefault());
+    z.addEventListener('drop',e=>{
+      e.preventDefault(); if(!dragged) return;
+      const correct=dragged.dataset.fit===z.dataset.id;
+      const clone=document.createElement('div');
+      clone.className='tag '+(correct?'tag-teal':'tag-rose');
+      clone.style.cssText='padding:8px 12px;font-size:.82rem';
+      clone.textContent=(correct?'✓ ':'✗ ')+dragged.textContent;
+      z.querySelector('.drop-list').appendChild(clone);
+      dragged.remove(); dragged=null;
+      if(!el.querySelector('#symPool [draggable]')){
+        const m=document.getElementById('sortMsg'); m.classList.remove('hidden');
+        m.textContent='All sorted! Green means correct, pink means it belongs elsewhere. Refresh the page to play again.';
+      }
+    });
+  });
+}
+/* Decision tree */
+const TREE={
+ start:{q:"Is the person experiencing a break from reality (hallucinations or delusions)?",
+   yes:"psychosis", no:"mood"},
+ psychosis:{q:"Have symptoms continued for 6 months or more?", yes:"r_scz", no:"r_brief"},
+ mood:{q:"Is there any history of a manic or hypomanic episode?", yes:"r_bipolar", no:"lowmood"},
+ lowmood:{q:"Is the main problem persistent low mood / loss of interest for ≥2 weeks?", yes:"r_dep", no:"anxiety"},
+ anxiety:{q:"Is the main problem excessive, uncontrollable worry for ≥6 months?", yes:"r_gad", no:"r_other"},
+ r_scz:{result:"Consider Schizophrenia",note:"Chronic psychosis ≥6 months. Refer for full psychiatric assessment."},
+ r_brief:{result:"Consider a brief/short psychotic disorder",note:"Psychosis under 6 months — duration guides the specific diagnosis."},
+ r_bipolar:{result:"Consider Bipolar Disorder",note:"A past manic/hypomanic episode reframes the picture. Screen carefully."},
+ r_dep:{result:"Consider Major Depressive Disorder",note:"≥2 weeks of low mood/anhedonia + associated symptoms. Assess suicide risk."},
+ r_gad:{result:"Consider Generalised Anxiety Disorder",note:"Pervasive worry ≥6 months with tension. Screen for depression too."},
+ r_other:{result:"Needs broader assessment",note:"The picture doesn't fit these common patterns — a full clinical assessment is needed."}
+};
+function renderTree(node='start'){
+  const el=document.getElementById('treeGame'); const n=TREE[node];
+  if(n.result){
+    el.innerHTML=`<div class="chip-icon c-teal" style="font-size:1.5rem">🎯</div>
+     <h3 style="margin:10px 0">${n.result}</h3>
+     <p style="color:var(--ink-soft)">${n.note}</p>
+     <div class="pearl" style="margin-top:12px"><b>Remember:</b> This is an educational simplification, not a real diagnostic tool. Actual diagnosis needs full assessment by a qualified professional.</div>
+     <button class="btn btn-primary" style="margin-top:12px" onclick="renderTree('start')">↺ Start over</button>`;
+    return;
+  }
+  el.innerHTML=`<div class="chip-icon c-lav" style="font-size:1.4rem">🧭</div>
+   <h3 style="margin:10px 0 14px">${n.q}</h3>
+   <div style="display:flex;gap:10px;flex-wrap:wrap">
+     <button class="btn btn-primary" onclick="renderTree('${n.yes}')">Yes →</button>
+     <button class="btn btn-ghost" onclick="renderTree('${n.no}')">No →</button>
+   </div>`;
+}
+/* ============================================================
+   BLOG
+============================================================ */
+const BLOG=[
+ {t:"Why 'Just Be Positive' Doesn't Cure Depression",cat:"Myths",icon:"🌧️",read:"5 min",date:"Jun 2026",ex:"Depression is a medical condition, not a mindset. Here's what the brain science actually says — and what helps instead."},
+ {t:"What I Learned Doing MSE in a Psychiatric Hospital",cat:"Clinical",icon:"🏥",read:"7 min",date:"May 2026",ex:"Notes from placement: how to observe, what to record, and the small things that change a mental status exam."},
+ {t:"CBT vs DBT vs ACT: A Simple Map",cat:"Therapy",icon:"🗺️",read:"6 min",date:"May 2026",ex:"Three therapies, one clear comparison — what each targets, and when clinicians reach for which."},
+ {t:"Reading a Research Paper Without Panicking",cat:"Student Tips",icon:"📄",read:"4 min",date:"Apr 2026",ex:"Abstract, methods, results, discussion — a calm, repeatable way to extract what matters."},
+ {t:"Validating a Mental Health Literacy Scale in Hindi",cat:"Research",icon:"🔬",read:"8 min",date:"Apr 2026",ex:"A plain-language walkthrough of factor analysis and why psychometrics matter for public awareness."},
+ {t:"Talking to Someone at Risk of Suicide",cat:"Awareness",icon:"🆘",read:"6 min",date:"Mar 2026",ex:"Asking directly does not plant the idea. A gentle, evidence-based guide for caregivers and friends."}
+];
+let blogTag='All';
+function renderBlog(){
+  const tags=['All',...new Set(BLOG.map(b=>b.cat))];
+  document.getElementById('blogTags').innerHTML=tags.map(t=>`
+    <button class="tag ${t===blogTag?'tag-teal':'tag-lav'}" style="cursor:pointer;border:none" onclick="setBlogTag('${t}')">${t}</button>`).join('');
+  const q=(document.getElementById('blogSearch').value||'').toLowerCase();
+  const list=BLOG.filter(b=>(blogTag==='All'||b.cat===blogTag)&&(b.t.toLowerCase().includes(q)||b.ex.toLowerCase().includes(q)));
+  const grid=document.getElementById('blogGrid');
+  grid.innerHTML=list.length?list.map(b=>`
+    <div class="card">
+      <div class="chip-icon c-lav" style="font-size:1.4rem">${b.icon}</div>
+      <span class="tag tag-teal" style="margin-top:10px;display:inline-block">${b.cat}</span>
+      <h3>${b.t}</h3><p>${b.ex}</p>
+      <div class="blog-meta"><span>📅 ${b.date}</span><span>⏱ ${b.read}</span><span>💬 Comments open</span></div>
+      <button class="btn btn-ghost" style="margin-top:14px;padding:9px 16px;font-size:.85rem" onclick="alert('Full article view is part of the blog build-out. This card shows the summary and metadata.')">Read article →</button>
+    </div>`).join(''):`<p style="color:var(--ink-faint)">No articles match. Try another search or tag.</p>`;
+}
+function setBlogTag(t){ blogTag=t; renderBlog(); }
+
+/* ============================================================
+   RESEARCH
+============================================================ */
+function renderResearch(){
+  document.getElementById('researchBody').innerHTML=`
+   <div class="grid grid-4" style="margin-bottom:26px">
+     <div class="card" style="text-align:center"><div class="stat"><b>1</b><span>Scopus-indexed publication</span></div></div>
+     <div class="card" style="text-align:center"><div class="stat"><b>3</b><span>Conference presentations</span></div></div>
+     <div class="card" style="text-align:center"><div class="stat"><b>1</b><span>M.Phil dissertation</span></div></div>
+     <div class="card" style="text-align:center"><div class="stat"><b>290</b><span>Dissertation sample (N)</span></div></div>
+   </div>
+   <div class="section-head" style="margin-top:10px"><span class="tag tag-teal">PUBLICATIONS</span></div>
+   <div class="card" style="margin-bottom:14px"><h3>Second-author publication</h3><p style="font-size:.9rem">Polish Psychological Bulletin (2025) — Scopus-indexed, co-supervised. <span class="tag tag-lav" style="margin-left:6px">Peer-reviewed</span></p></div>
+
+   <div class="section-head" style="margin-top:24px"><span class="tag tag-lav">DISSERTATION (ONGOING)</span></div>
+   <div class="card" style="margin-bottom:14px"><h3>Psychometric Validation of the Hindi Mental Health Literacy Scale (MHLS-HI)</h3>
+     <p style="font-size:.9rem">Split-sample cross-validation (EFA n=145, CFA n=145; N=290). Four-factor solution: Help-Seeking Attitudes, Stigma &amp; Personal Beliefs, Recognition of Mental Health Problems, and Knowledge of Where to Seek Information. WHO translation methodology; targeted for peer-reviewed submission.</p></div>
+
+   <div class="section-head" style="margin-top:24px"><span class="tag tag-amber">CONFERENCE PRESENTATIONS</span></div>
+   <div class="grid grid-3">
+     <div class="card"><h3 style="font-size:.98rem">IAHP 2025</h3><p>Conference presentation.</p></div>
+     <div class="card"><h3 style="font-size:.98rem">NAOP 2023</h3><p>Conference presentation.</p></div>
+     <div class="card"><h3 style="font-size:.98rem">ICPEES 2023</h3><p>Conference presentation.</p></div>
+   </div>
+
+   <div class="section-head" style="margin-top:24px"><span class="tag tag-teal">RESEARCH INTERESTS</span></div>
+   <div style="display:flex;gap:8px;flex-wrap:wrap">
+     ${['Mental health literacy','Psychometrics','Forensic psychology','Digital psychiatry','Public mental health','Clinical assessment'].map(x=>`<span class="tag tag-lav" style="padding:8px 14px">${x}</span>`).join('')}
+   </div>`;
+}
+
+/* ============================================================
+   RESOURCES
+============================================================ */
+const RESOURCES=[
+ {t:"CBT Thought Record",i:"📝",d:"A blank thought record to catch and test automatic negative thoughts.",cat:"Worksheet"},
+ {t:"Behavioural Activation Planner",i:"📅",d:"Schedule small, rewarding activities to lift low mood.",cat:"Worksheet"},
+ {t:"MSE Template",i:"🩺",d:"A structured mental status examination template for clinical write-ups.",cat:"Clinical Form"},
+ {t:"HOPI Template",i:"📋",d:"History of presenting illness — a clear, logical clinical format.",cat:"Clinical Form"},
+ {t:"Case Formulation (5 Ps)",i:"🧩",d:"Predisposing, precipitating, perpetuating, protective, and presenting factors.",cat:"Template"},
+ {t:"Psychoeducation Handout: Anxiety",i:"📖",d:"A caregiver-friendly explainer on how anxiety works and what helps.",cat:"Handout"},
+ {t:"Assessment Battery Checklist",i:"✅",d:"Common tests (WAIS, MMPI-2, Y-BOCS, PANSS) and when to use them.",cat:"Reference"},
+ {t:"Suicide Safety Plan Template",i:"🛟",d:"A structured plan template used in risk management (educational).",cat:"Clinical Form"}
+];
+function renderResources(){
+  document.getElementById('resourcesGrid').innerHTML=RESOURCES.map(r=>`
+   <div class="card res-card">
+     <div class="chip-icon c-teal" style="font-size:1.4rem;flex-shrink:0">${r.i}</div>
+     <div style="flex:1">
+       <span class="tag tag-lav">${r.cat}</span>
+       <h3 style="margin:8px 0 4px">${r.t}</h3>
+       <p>${r.d}</p>
+       <button class="btn btn-ghost" style="margin-top:12px;padding:9px 16px;font-size:.85rem"
+         onclick='printDoc("${r.t}","<h1>${r.t}</h1><p>${r.d}</p><p style=\\"margin-top:20px;color:#888\\">Printable template — fields to be completed by hand or digitally.</p>")'>⬇ Download</button>
+     </div>
+   </div>`).join('');
+}
+
+/* ============================================================
+   ABOUT
+============================================================ */
+function renderAbout(){
+  document.getElementById('aboutBody').innerHTML=`
+   <span class="tag tag-teal">CLINICAL PSYCHOLOGY TRAINEE</span>
+   <h2 style="font-size:1.7rem;margin:12px 0 8px">Hi, I'm a clinical psychologist in training.</h2>
+   <p style="color:var(--ink-soft)">I'm completing my <strong>M.Phil in Clinical Psychology (RCI)</strong>, with placements spanning a government psychiatric hospital, a central prison, and a military setting. This site is where I turn what I learn in the clinic and in research into plain-language explanations anyone can follow.</p>
+
+   <h3 style="margin:22px 0 8px">My journey</h3>
+   <p style="color:var(--ink-soft)">From a BSc, to an MA in Psychology, to M.Phil clinical training — my path has been about moving closer to real clinical work while staying curious about research. Working across very different settings taught me that good mental health education has to be clear, respectful, and free of jargon.</p>
+
+   <h3 style="margin:22px 0 8px">Education</h3>
+   <div class="timeline">
+     <div class="tl-item"><b>M.Phil Clinical Psychology (RCI)</b><span>Rashtriya Raksha University — Batch 2024–2026.</span></div>
+     <div class="tl-item"><b>MA Psychology</b><span>Central University of Punjab.</span></div>
+     <div class="tl-item"><b>BSc</b><span>Hemchand Yadav University.</span></div>
+   </div>
+
+   <h3 style="margin:22px 0 8px">Research interests</h3>
+   <div style="display:flex;gap:8px;flex-wrap:wrap">
+     ${['Mental health literacy','Psychometrics','Forensic & military settings','Digital psychiatry','Public awareness'].map(x=>`<span class="tag tag-lav" style="padding:7px 13px">${x}</span>`).join('')}
+   </div>
+
+   <h3 style="margin:22px 0 8px">Highlights</h3>
+   <div class="two-col">
+     <div class="mini-card"><h4>Publications</h4><p>Scopus-indexed second-author paper (Polish Psychological Bulletin, 2025).</p></div>
+     <div class="mini-card"><h4>Conferences</h4><p>IAHP 2025, NAOP 2023, ICPEES 2023.</p></div>
+     <div class="mini-card"><h4>Placements</h4><p>Psychiatric hospital, central prison, and military setting.</p></div>
+     <div class="mini-card"><h4>Skills</h4><p>CBT, DBT, ACT, REBT, MET; WAIS, MMPI-2, Rorschach, PANSS, Y-BOCS.</p></div>
+   </div>`;
+}
+
+/* ============================================================
+   A11Y PANEL · THEME · MENU · FORMS · INIT  (final wiring)
+============================================================ */
+const HTML = document.documentElement;
+const PREF = { theme:'ps_theme', contrast:'ps_contrast', font:'ps_font', scale:'ps_scale' };
+
+function loadPrefs(){
+  try{ for(const [act,key] of Object.entries(PREF)){ const v=localStorage.getItem(key); if(v) HTML.setAttribute('data-'+act, v); } }catch(e){}
+}
+function applyPref(act,val){
+  HTML.setAttribute('data-'+act, val);
+  try{ localStorage.setItem(PREF[act], val); }catch(e){}
+  highlightPrefs(); syncThemeBtn();
+}
+function highlightPrefs(){
+  document.querySelectorAll('#a11yPanel [data-act]').forEach(b=>{
+    b.classList.toggle('on', HTML.getAttribute('data-'+b.getAttribute('data-act'))===b.getAttribute('data-val'));
+  });
+}
+/* dark-mode toggle in navbar */
+function toggleTheme(){ applyPref('theme', HTML.getAttribute('data-theme')==='dark'?'light':'dark'); }
+function syncThemeBtn(){ const b=document.getElementById('themeBtn'); if(b) b.textContent = HTML.getAttribute('data-theme')==='dark'?'☀️':'🌙'; }
+/* accessibility floating panel */
+function toggleA11y(){ const p=document.getElementById('a11yPanel'), f=document.getElementById('a11yFab'); const open=p.classList.toggle('hidden')===false; f.setAttribute('aria-expanded', String(open)); }
+/* mobile menu */
+function toggleMenu(){ const n=document.getElementById('navLinks'), m=document.getElementById('menuBtn'); const open=n.classList.toggle('open'); m.setAttribute('aria-expanded', String(open)); }
+/* forms (demo — no backend yet) */
+function handleContact(e){ e.preventDefault(); document.getElementById('contactOk').classList.remove('hidden'); e.target.reset(); }
+function handleNewsletter(e){ e.preventDefault(); document.getElementById('newsOk').classList.remove('hidden'); e.target.reset(); }
+
+/* ---------------- INIT ---------------- */
+function init(){
+  loadPrefs(); syncThemeBtn();
+  document.getElementById('themeBtn')?.addEventListener('click', toggleTheme);
+  document.getElementById('menuBtn')?.addEventListener('click', toggleMenu);
+  document.getElementById('a11yFab')?.addEventListener('click', toggleA11y);
+  document.querySelectorAll('#a11yPanel [data-act]').forEach(b=>{
+    b.addEventListener('click', ()=> applyPref(b.getAttribute('data-act'), b.getAttribute('data-val')));
+  });
+  highlightPrefs();
+  document.getElementById('siteSearch')?.addEventListener('input', runSearch);
+  document.getElementById('disorderFilter')?.addEventListener('input', e=> renderDisorderGrid(e.target.value));
+  document.getElementById('blogSearch')?.addEventListener('input', renderBlog);
+  document.getElementById('navLinks')?.addEventListener('click', e=>{
+    if(e.target.closest('[data-nav]')){ document.getElementById('navLinks').classList.remove('open'); document.getElementById('menuBtn')?.setAttribute('aria-expanded','false'); }
+  });
+  buildSearchIndex();
+  renderHub(); renderDisorderGrid(); renderNotes(); renderBlog();
+  renderResearch(); renderResources(); renderAbout(); renderSortGame(); renderTree();
+  route();
+  // register service worker for PWA/offline (only when served over http/https)
+  if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+    navigator.serviceWorker.register('/sw.js').catch(()=>{});
+  }
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init); else init();
+</script>
+</body>
+</html>
