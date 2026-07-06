@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://psychsimplified.pages.dev/sitemap.xml
+Sitemap: https://psychsimplified.himanshuthakur070.workers.dev/sitemap.xml
