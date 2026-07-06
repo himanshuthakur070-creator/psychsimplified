@@ -4,7 +4,7 @@
 plus a personal clinical-psychology portfolio — built as a single, fast, offline-capable
 static website with no build step.
 
-Live idea: `https://psychsimplified.pages.dev` (your real URL appears after you deploy).
+Live idea: `https://psychsimplified.himanshuthakur070.workers.dev` (your real URL appears after you deploy).
 
 ---
 
